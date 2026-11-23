@@ -16,12 +16,24 @@ changes to the code, so read it with these corrections:
   for `UnapprovedImage`, the retry policy written at `wisp()` in `public/js/upstream.js`, and a log line each time
   a batch answer with errors is kept for 60 s. The node server still only audits with `ASSET_LOG=1`.
 - **#20** The join logs the edge address and the host built from it (`[gamejoin] game host`).
-- **#14** `webbloxCacheStats()` gives the cache hit rate per host in Wisp mode. Skipping the CJK font and preloading
-  the wasm in Wisp mode are still open.
+- **#14** Done: the CJK font is left out unless the browser's languages include Chinese, Japanese or Korean (the
+  engine starts the same without it), the worker fetches the wasm while the page sets up its relay and session, and
+  `webbloxCacheStats()` gives the cache hit rate per host. The per-host lifetimes have not been reviewed against a
+  real session's numbers.
+- **#13** The adaptive governor keeps a ratio per engine stage for the page load. It cannot tell a lobby from a
+  fight inside one game, since both are the same stage.
+- **#16** In Wisp mode the page remembers what each place asked for and fetches it together when the next join
+  starts. `FFlagWasmPrefetchAllAssets` is not in this engine build. Not yet measured in a session.
 - **#5** The page works its scale out again when the pixel ratio changes. The render worker keeps the star width it
   started with. Still to confirm on real 125 %, 150 % and 200 % displays.
-- **#17** No Windows install is needed: `tools/update-launcher.js` already downloads the Windows packages, so the
-  tool can read the content from them.
+- **#17** Done: `npm run import-content` reads the Windows packages from Roblox's CDN, so no installed player is
+  needed. Against Windows 0.748 it finds every file the engine names already in the bundle.
+- **App storage.** What is known so far: the file is `/appData/LocalStorage/appStorage.json` in the engine's own
+  in-memory filesystem, and wasm function 154943 builds its name and is only reached through a table. The engine
+  exports `rbx_fs_add_file` and `rbx_fs_preload_asset`, and a file seeded through `window.__prefetchedAssets` does
+  land in memory, but the engine did not read it back on the sign-in screen, so AppStorage either loads later or
+  through another file layer. Nothing reads a file out, so saving still needs a wasm patch or a new export. The
+  next step needs a signed-in session: change a theme, then find the written file in memory.
 
 Open in this copy and not in the list below:
 
