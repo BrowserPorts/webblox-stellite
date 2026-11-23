@@ -325,7 +325,7 @@
     ],
     [
       "function Jr(){c_(),We.__instrumented||(We.__instrumented=!0,G.instrumentWasmImports(We));var e=",
-      "function Jr(){c_(),We.__instrumented||(We.__instrumented=!0,G.instrumentWasmImports(We));typeof window<\"u\"&&(window.__webbloxImportPatches||[]).forEach(p=>p(We,Ae));typeof window>\"u\"&&globalThis.__wbThreadGl&&(importScripts(location.origin+\"/js/gl-ops.js\",location.origin+\"/js/gl-thread.js\"),globalThis.__wbInstallThreadGl(We,Ae));var e=",
+      "function Jr(){c_(),We.__instrumented||(We.__instrumented=!0,G.instrumentWasmImports(We));typeof window<\"u\"&&(window.__webbloxImportPatches||[]).forEach(p=>p(We,Ae));typeof window>\"u\"&&globalThis.__wbThreadGl&&(importScripts(new URL(\"../js/gl-ops.js\",location.href).href,new URL(\"../js/gl-thread.js\",location.href).href),globalThis.__wbInstallThreadGl(We,Ae));var e=",
       1
     ],
     [
