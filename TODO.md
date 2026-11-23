@@ -1,5 +1,35 @@
 # TODO
 
+## Where this copy stands
+
+This is Stellite's copy. It runs from any folder (Stellite serves it under `/webblox/` in a frame), ships no
+public Wisp relay and takes its relay from the host with `?wisp=`. The list below was written before several
+changes to the code, so read it with these corrections:
+
+- The session never touches a file. In node mode it is kept as `rbx_*` cookies in the browser, in Wisp mode in
+  `localStorage['cobalt-cookies']`. There is no `.roblosecurity` file, no local relay, no `whip.js` and no UDMUX
+  token map any more. Game traffic is WebTransport from the browser straight to `*.qdmux.roblox.com`.
+- **#18** Sign out exists in the launcher. The smoke and flag boot checks now ask the page whether it is signed
+  in and take a signed-in profile with `WEBBLOX_PROFILE`. Still to test with real accounts: expiry, and two
+  accounts in sequence.
+- **#15** Done in Wisp mode: one line and a count per refused asset (`webbloxRefusedAssets()`), an empty picture
+  for `UnapprovedImage`, the retry policy written at `wisp()` in `public/js/upstream.js`, and a log line each time
+  a batch answer with errors is kept for 60 s. The node server still only audits with `ASSET_LOG=1`.
+- **#20** The join logs the edge address and the host built from it (`[gamejoin] game host`).
+- **#14** `webbloxCacheStats()` gives the cache hit rate per host in Wisp mode. Skipping the CJK font and preloading
+  the wasm in Wisp mode are still open.
+- **#5** The page works its scale out again when the pixel ratio changes. The render worker keeps the star width it
+  started with. Still to confirm on real 125 %, 150 % and 200 % displays.
+- **#17** No Windows install is needed: `tools/update-launcher.js` already downloads the Windows packages, so the
+  tool can read the content from them.
+
+Open in this copy and not in the list below:
+
+- **Session storage in Wisp mode.** Any script on the same origin can read `localStorage['cobalt-cookies']`. The
+  bundled Cobalt client reads that key itself, so moving it means rebuilding or wrapping that bundle.
+- **Game traffic on networks that block Roblox.** Joins fail there. Planned: fall back to a WebTransport relay in
+  wisp-rust, then to a QUIC stack in the page over a Wisp UDP stream.
+
 State as of the last session: a full join to RIVALS works (lobby, avatars, chat, scoreboard),
 asset requests return 200, and the text double-draw at scaled displays is fixed. The visual
 issues below are the remaining gap against native.
