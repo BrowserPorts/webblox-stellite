@@ -676,6 +676,8 @@
       }
 
       if (mode === 'wisp') {
+        // The relay and the session come first, so the engine's largest files start downloading beside them
+        if (navigator.serviceWorker.controller) navigator.serviceWorker.controller.postMessage({ type: 'webblox-warm', files: ['WebClient.wasm', 'WebClient.js'] });
         try {
           await loadScript(WEBBLOX_BASE + 'cobalt/wisps.js');
           await loadScript(WEBBLOX_BASE + 'cobalt/cobalt.js');

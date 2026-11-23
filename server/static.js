@@ -343,7 +343,17 @@ function sendBody(req, res, status, headers, body) {
   res.end(req.method === 'HEAD' ? undefined : body);
 }
 
+// The CJK font is 16 MB and the engine fetches it on every start. A browser whose languages include none of Chinese,
+// Japanese or Korean goes without it, at the cost of those scripts drawing as boxes in names and chat
+const CJK_FONT = /NotoSansCJK[^/]*\.otf$/i;
+const wantsCjk = req => /(?:^|[\s,])(?:zh|ja|ko)\b/i.test(req.headers['accept-language'] || '');
+
 async function sendFile(req, res, requestedPath) {
+  if (CJK_FONT.test(requestedPath) && !wantsCjk(req)) {
+    res.writeHead(404, ISOLATION_HEADERS);
+    res.end();
+    return;
+  }
   const filePath = eraFile(req, requestedPath);
   const stat = statOf(filePath);
   if (!stat) {

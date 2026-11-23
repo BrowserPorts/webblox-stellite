@@ -190,7 +190,14 @@ if (!NODE_MODE) {
     }
 
     if (pathname.startsWith(WEBCLIENT)) {
-      const served = (await loadRoutes())[pathname.slice(WEBCLIENT.length)];
+      const name = pathname.slice(WEBCLIENT.length);
+      if (CJK_FONT.test(name) && !WANTS_CJK) return text(404, 'Left out for this language', { 'Cache-Control': 'no-store' });
+      const early = !request.headers.has('range') && warmed.get(name);
+      if (early) {
+        warmed.delete(name);
+        return early;
+      }
+      const served = (await loadRoutes())[name];
       return served
         ? from(local(served.replace(/^\//, '')))
         : text(404, `Not found: ${pathname}`, { 'Cache-Control': 'public, max-age=60' });
@@ -198,6 +205,27 @@ if (!NODE_MODE) {
     if (request.method !== 'GET' && request.method !== 'HEAD') return fetch(request).then(isolate);
     return from(url.href);
   }
+
+  // The CJK font is 16 MB and the engine fetches it on every start. A browser whose languages include none of Chinese,
+  // Japanese or Korean goes without it, at the cost of those scripts drawing as boxes in names and chat
+  const CJK_FONT = /NotoSansCJK[^/]*\.otf$/i;
+  const WANTS_CJK = (navigator.languages || [navigator.language || '']).some(tag => /^(zh|ja|ko)\b/i.test(tag));
+
+  // Engine files the page asked for ahead of time. The page has the relay and the session to set up before the engine
+  // starts, so the big downloads run beside that instead of after it. Each answer is handed out once
+  const warmed = new Map();
+  self.addEventListener('message', event => {
+    const msg = event.data;
+    if (!msg || msg.type !== 'webblox-warm' || !Array.isArray(msg.files)) return;
+    event.waitUntil(loadRoutes().then(table => {
+      for (const name of msg.files) {
+        if (warmed.has(name) || !table[name]) continue;
+        const answer = fetch(local(table[name].replace(/^\//, ''))).then(isolate);
+        answer.catch(() => warmed.delete(name));
+        warmed.set(name, answer);
+      }
+    }));
+  });
 
   async function topPage(clientId) {
     // The page that owns the transport is the engine page or the launcher. Embedded in another site it is a frame, not
