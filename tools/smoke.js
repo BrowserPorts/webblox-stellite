@@ -58,14 +58,16 @@ async function main() {
 
   const port = await freePort();
   const server = startServer(BASE, { port, env: { ...STAGE_ENV, WEBBLOX_NO_FLAG_WATCH: '1' } });
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'webblox-smoke-'));
+  // The Roblox session lives in the browser's cookies, so the signed-in checks only run in a profile that has signed
+  // in before. WEBBLOX_PROFILE names one to reuse, and it is left in place afterwards
+  const kept = process.env.WEBBLOX_PROFILE;
+  const profile = kept ? path.resolve(kept) : fs.mkdtempSync(path.join(os.tmpdir(), 'webblox-smoke-'));
   const debugPort = await freePort();
   let browser = null;
   try {
     const up = await waitFor(() => getJson(`http://127.0.0.1:${port}/__stats`), 20);
     check('server starts', Boolean(up));
     if (!up) return;
-    const signedIn = /Loaded Roblox session/.test(server.log());
 
     browser = launchChrome(chrome, { profile, debugPort, headed: HEADED });
     const targets = await waitFor(() => getJson(`http://127.0.0.1:${debugPort}/json`), 20);
@@ -104,6 +106,8 @@ async function main() {
     const theme = await waitFor(() => tab.evaluate(`(() => { const M = window.Module; const H = M && (M.HEAP32 || (M.wasmMemory && new Int32Array(M.wasmMemory.buffer))); return H ? H[${THEME_ADDRESS} >> 2] : null; })()`), 30);
     check('device theme reaches the engine', theme === 1 || theme === 2, theme === 1 ? 'light' : theme === 2 ? 'dark' : String(theme));
 
+    const signedIn = await tab.evaluate("fetch('/__proxy__/https://users.roblox.com/v1/users/authenticated').then(r => r.status === 200).catch(() => false)");
+    console.log(signedIn ? '  signed in, running the account checks' : '  signed out, skipping the account checks (sign in once in a profile and pass it as WEBBLOX_PROFILE)');
     if (signedIn) {
       const policy = await tab.evaluate("fetch('/__proxy__/https://apis.roblox.com/guac-v2/v1/bundles/app-policy').then(r => r.json()).then(p => p.EnableWebViewSupport === true).catch(() => false)");
       check('app policy enables web views', policy === true);
@@ -132,7 +136,7 @@ async function main() {
     if (browser) browser.kill();
     server.stop();
     await sleep(500);
-    try { fs.rmSync(profile, { recursive: true, force: true }); } catch {}
+    if (!kept) try { fs.rmSync(profile, { recursive: true, force: true }); } catch {}
   }
 }
 

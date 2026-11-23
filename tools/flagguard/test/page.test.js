@@ -42,6 +42,8 @@ function makePage({ search = '', files = {}, live = { applicationSettings: { Liv
   };
   const sandbox = {
     window,
+    // The folder the site is served from, which the page works out before this code runs
+    WEBBLOX_BASE: '/',
     location: { search, href: `http://localhost:3000/${search}` },
     localStorage: { getItem: key => (store.has(key) ? store.get(key) : null), setItem: (key, value) => store.set(key, String(value)), removeItem: key => store.delete(key) },
     URL,

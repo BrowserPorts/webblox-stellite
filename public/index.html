@@ -495,6 +495,28 @@
       }
     };
 
+    // A window dragged to a display with another pixel ratio, or a browser zoom, changes what one CSS pixel is. The
+    // engine reads these two values as it lays out, so they are worked out again each time the ratio changes
+    const watchPixelRatio = () => {
+      const query = matchMedia(`(resolution: ${window.devicePixelRatio || 1}dppx)`);
+      query.addEventListener('change', () => {
+        const url = new URLSearchParams(location.search);
+        const M = window.Module;
+        // The engine keeps the scale it started with, so its ratio is replaced with one from today's display. A forced
+        // scale and the adaptive governor own the ratio themselves and are left alone
+        if (M && typeof M.getEffectiveDevicePixelRatio === 'function' && !url.has('renderScale') && url.get('adaptive') !== '1' && !url.has('scale')) {
+          const settings = loadSettings();
+          const scale = interfaceScale(settings);
+          window.__webbloxRenderScale = scale < 1 ? String(+scale.toFixed(4)) : '';
+          window.__webbloxStarWidth = starWidth(settings);
+          M.getEffectiveDevicePixelRatio = () => (window.devicePixelRatio || 1) * scale;
+          dispatchEvent(new Event('resize'));
+        }
+        watchPixelRatio();
+      }, { once: true });
+    };
+    watchPixelRatio();
+
     const applySettingsUpdate = update => {
       const settings = loadSettings();
       if (!update || typeof update !== 'object') return settings;

@@ -287,6 +287,41 @@
     return r && { status: r.status, statusText: r.statusText, headers: r.headers, body: r.body.slice(0) };
   }
 
+  const ERROR_TTL_MS = 60 * 1000;
+  const refused = new Map();
+
+  // One line for each asset Roblox refuses, the first time it does, with the running count. The ids pair up with the
+  // request by position
+  function noteRefused(requestBody, answers) {
+    if (!Array.isArray(answers)) return;
+    let asked = [];
+    try { asked = JSON.parse(new TextDecoder().decode(requestBody)); } catch {}
+    answers.forEach((answer, i) => {
+      const error = answer && Array.isArray(answer.errors) && answer.errors[0];
+      if (!error) return;
+      const id = String((asked[i] && asked[i].assetId) || answer.requestId || '?');
+      if (refused.has(id)) return;
+      refused.set(id, error.code);
+      console.warn(`[assets] Roblox refused asset ${id} (code ${error.code}${error.message ? ', ' + error.message : ''}), ${refused.size} refused so far`);
+    });
+  }
+  window.webbloxRefusedAssets = () => Object.fromEntries(refused);
+
+  // Roblox answers a blocked thumbnail with its "unapproved" picture, which the engine draws as a black pill. An
+  // empty picture leaves the slot empty instead
+  const UNAPPROVED_IMAGE = /UnapprovedImage/i;
+  const EMPTY_PNG = Uint8Array.from(atob('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='), c => c.charCodeAt(0));
+  const emptyImage = () => ({ status: 200, statusText: 'OK', headers: [['content-type', 'image/png'], ['cache-control', 'max-age=3600']], body: EMPTY_PNG.slice().buffer });
+
+  // How often each host was answered from the in-page cache, for reviewing the lifetimes above
+  const hostStats = new Map();
+  const countHost = (host, hit) => {
+    const stat = hostStats.get(host) || { hits: 0, misses: 0 };
+    stat[hit ? 'hits' : 'misses']++;
+    hostStats.set(host, stat);
+  };
+  window.webbloxCacheStats = () => Object.fromEntries([...hostStats].map(([host, s]) => [host, { ...s, rate: +(s.hits / (s.hits + s.misses)).toFixed(3) }]));
+
   function qdmuxFqdn(joinScript) {
     const udmux = joinScript.UdmuxEndpoints && joinScript.UdmuxEndpoints[0];
     const nst = String(joinScript.NetStackTokenValue || '');
@@ -304,9 +339,26 @@
     return `${token}-${hex(machine)}-${Number(joinScript.NetStackPort).toString(16)}.${hex(octets)}.qdmux.roblox.com`;
   }
 
+  // Retry policy: only a request that is safe to repeat is retried, only when the answer says to come back (429 or a
+  // server error) or none arrived, at most RETRY_LIMIT times with a jittered, doubling wait. A refusal such as 403 or
+  // 404 is final and is never asked again
+  const RETRY_LIMIT = 3;
+  const RETRY_BASE_MS = 300;
+  const retryable = status => status === 429 || (status >= 500 && status <= 599);
+  const retryWait = attempt => new Promise(resolve => setTimeout(resolve, RETRY_BASE_MS * 2 ** attempt * (0.5 + Math.random())));
+
   async function wisp(url, init) {
-    const r = await cb_fetch(url, { ...init, redirect: 'follow' });
-    return { status: r.status, statusText: r.statusText, headers: r.headers, body: await r.arrayBuffer() };
+    const repeatable = init.method === 'GET' || init.method === 'HEAD';
+    for (let attempt = 0; ; attempt++) {
+      const last = !repeatable || attempt >= RETRY_LIMIT - 1;
+      try {
+        const r = await cb_fetch(url, { ...init, redirect: 'follow' });
+        if (last || !retryable(r.status)) return { status: r.status, statusText: r.statusText, headers: r.headers, body: await r.arrayBuffer() };
+      } catch (err) {
+        if (last) throw err;
+      }
+      await retryWait(attempt);
+    }
   }
 
   function jarNames(host) {
@@ -350,6 +402,10 @@
     }));
     if (r.status === 200 && json && json.joinScript && !json.joinScript.gameFqdn) {
       const fqdn = qdmuxFqdn(json.joinScript);
+      const edge = json.joinScript.UdmuxEndpoints && json.joinScript.UdmuxEndpoints[0];
+      // The host is built from the edge address plus one. A datacenter that breaks that rule fails with
+      // "Opening handshake failed", and this line is where to read the pattern it used
+      console.log('[gamejoin] game host', fqdn || 'could not be built', 'from edge', edge ? `${edge.Address}:${edge.Port}` : 'none');
       if (fqdn) {
         json.joinScript.gameFqdn = fqdn;
         r.body = new TextEncoder().encode(JSON.stringify(json)).buffer;
@@ -390,15 +446,19 @@
     }
     if (body && !body.byteLength) body = null;
 
+    if (method === 'GET' && UNAPPROVED_IMAGE.test(url)) return emptyImage();
+
     const asset = isAsset(method, target, headers);
     if (asset) {
       const ready = await localAsset(url);
+      countHost(target.hostname, !!ready);
       if (ready) return ready;
     }
 
     const key = await cacheKey(method, url, body);
     if (key) {
       const hit = cacheGet(key);
+      countHost(target.hostname, !!hit);
       if (hit) return { status: hit.status, statusText: hit.statusText, headers: hit.headers, body: hit.body.slice(0) };
     }
 
@@ -410,14 +470,21 @@
     const resHeaders = responseHeaders(r.headers);
     if (asset) storeAsset(url, r, resHeaders);
     if (r.status === 200 && method === 'POST' && /\/v1\/assets\/batch$/.test(target.pathname)) {
-      try { prefetchLocations(JSON.parse(new TextDecoder().decode(r.body))); } catch {}
+      try {
+        const answers = JSON.parse(new TextDecoder().decode(r.body));
+        noteRefused(body, answers);
+        prefetchLocations(answers);
+      } catch {}
     }
     if (r.status >= 400) console.log(`[proxy] → ${r.status} ${method} ${target.hostname}${target.pathname}`);
 
     if (key) {
       let ttl = cacheTtl(method, r.headers);
       if (/\/v1\/(assets\/batch|users)$/.test(target.pathname) &&
-          new TextDecoder().decode(r.body).includes('"errors"')) ttl = Math.min(ttl, 60 * 1000);
+          new TextDecoder().decode(r.body).includes('"errors"')) {
+        ttl = Math.min(ttl, ERROR_TTL_MS);
+        console.log(`[cache] ${target.pathname} answered with errors, kept for ${ttl / 1000} s`);
+      }
       cacheSet(key, { status: r.status, statusText: r.statusText, headers: resHeaders, body: r.body.slice(0) }, ttl);
     }
     return { status: r.status, statusText: r.statusText, headers: resHeaders, body: r.body };

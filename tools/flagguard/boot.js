@@ -49,7 +49,9 @@ async function boot({ base, env = {}, query = 'launcher=roblox', flagSet = null,
   const port = await freePort();
   const debugPort = await freePort();
   const server = startServer(base, { port, env: { WEBBLOX_NO_LAUNCHER_UPDATES: '1', WEBBLOX_NO_FLAG_WATCH: '1', ...env } });
-  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'webblox-flags-'));
+  // The Roblox session lives in the browser's cookies. WEBBLOX_PROFILE names a signed-in profile to reuse
+  const kept = process.env.WEBBLOX_PROFILE;
+  const profile = kept ? path.resolve(kept) : fs.mkdtempSync(path.join(os.tmpdir(), 'webblox-flags-'));
   const result = { steps: {}, console: [], errors: [], signedIn: false, flags: null, flagSet: null, ixpAtBoot: null, memory: null, ixp: null, screenshot: null };
   let browser = null;
   let tab = null;
@@ -57,7 +59,6 @@ async function boot({ base, env = {}, query = 'launcher=roblox', flagSet = null,
     const up = await waitFor(() => getJson(`http://127.0.0.1:${port}/__stats`), SERVER_SECONDS);
     result.steps.server = Boolean(up);
     if (!up) throw new Error('The WebBlox server did not start.');
-    result.signedIn = /Loaded Roblox session/.test(server.log());
     browser = launchChrome(chrome, { profile, debugPort });
     const targets = await waitFor(() => getJson(`http://127.0.0.1:${debugPort}/json`), BROWSER_SECONDS);
     const page = targets && targets.find(target => target.type === 'page');
@@ -86,6 +87,7 @@ async function boot({ base, env = {}, query = 'launcher=roblox', flagSet = null,
     await tab.send('Page.navigate', { url: `http://localhost:${port}/?${query}` });
     result.steps.isolated = Boolean(await waitFor(() => tab.evaluate('window.crossOriginIsolated === true'), ISOLATION_SECONDS));
     result.steps.loaded = Boolean(await waitFor(() => tab.evaluate(LOADED), LOAD_SECONDS));
+    result.signedIn = Boolean(await tab.evaluate("fetch('/__proxy__/https://users.roblox.com/v1/users/authenticated').then(r => r.status === 200).catch(() => false)"));
     result.steps.engine = Boolean(await waitFor(() => tab.evaluate(ENGINE_READY), ENGINE_SECONDS));
     result.flagSet = (await tab.evaluate('window.__webbloxFlagSet || null')) || null;
     result.flags = (await tab.evaluate('window.__webbloxFlags || null')) || null;
@@ -109,9 +111,11 @@ async function boot({ base, env = {}, query = 'launcher=roblox', flagSet = null,
     if (browser) browser.kill();
     server.stop();
     await sleep(500);
-    try {
-      fs.rmSync(profile, { recursive: true, force: true });
-    } catch {}
+    if (!kept) {
+      try {
+        fs.rmSync(profile, { recursive: true, force: true });
+      } catch {}
+    }
   }
   return result;
 }
