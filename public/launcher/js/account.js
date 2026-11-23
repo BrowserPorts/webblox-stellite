@@ -261,7 +261,7 @@ export function showWeb(root, { key }) {
   const frame = el('iframe', 'web-frame');
   frame.title = page[0];
   frame.sandbox = 'allow-scripts allow-same-origin allow-forms allow-modals allow-downloads allow-popups allow-popups-to-escape-sandbox';
-  frame.src = `/${wispMode ? '__frame__' : '__proxy__'}/${robloxUrl(page[1])}`;
+  frame.src = `${WEBBLOX_BASE}${wispMode ? '__frame__' : '__proxy__'}/${robloxUrl(page[1])}`;
   root.replaceChildren(head, frame);
 }
 

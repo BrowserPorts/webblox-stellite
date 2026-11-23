@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Gotham 2022';
-  src: url('/launcher/loader-client/GothamSSm-Medium.otf') format('opentype');
+  src: url('loader-client/GothamSSm-Medium.otf') format('opentype');
   font-weight: 500;
   font-display: block;
 }
@@ -370,11 +370,11 @@ html[data-loader='classic'][data-loader-variant^='client'] #loading-overlay.load
 }
 
 #loader-client.lc-launch #loading-cancel {
-  background: url('/launcher/loader-2020/cancelButton.png') center / 100% 100% no-repeat;
+  background: url('loader-2020/cancelButton.png') center / 100% 100% no-repeat;
 }
 
 #loader-client.lc-current #loading-cancel {
-  background: url('/assets/loading/cancelButton.png') center / 100% 100% no-repeat;
+  background: url('../assets/loading/cancelButton.png') center / 100% 100% no-repeat;
 }
 
 #loader-client #loading-cancel:focus-visible {

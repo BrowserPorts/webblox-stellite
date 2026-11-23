@@ -25,9 +25,9 @@
 
 .xbox-bg, .xbox-sound, .xbox-profile { display: none; }
 
-@font-face { font-family: 'Source Sans'; src: url('/launcher/fonts/SourceSans-300.woff2') format('woff2'); font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Source Sans'; src: url('/launcher/fonts/SourceSans-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Source Sans'; src: url('/launcher/fonts/SourceSans-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Source Sans'; src: url('fonts/SourceSans-300.woff2') format('woff2'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Source Sans'; src: url('fonts/SourceSans-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Source Sans'; src: url('fonts/SourceSans-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 
 html[data-theme='xbox'] { --top: 0px; --gutter: clamp(16px, 3.33vw, 64px); --gap: 10px; --sel: clamp(12px, 0.99vw, 19px); }
 
@@ -45,7 +45,7 @@ html[data-theme='xbox'] :focus-visible { outline: 3px solid #ffffff; outline-off
 
 html[data-theme='xbox'] h1, html[data-theme='xbox'] h2, html[data-theme='xbox'] h3 { font-family: inherit; }
 
-html[data-theme='xbox'] .xbox-bg { position: fixed; inset: 0; z-index: -1; display: block; background: #0d1c26 url('/launcher/xbox/poster.jpg') center / cover no-repeat; pointer-events: none; }
+html[data-theme='xbox'] .xbox-bg { position: fixed; inset: 0; z-index: -1; display: block; background: #0d1c26 url('xbox/poster.jpg') center / cover no-repeat; pointer-events: none; }
 
 html[data-theme='xbox'] .xbox-bg video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
@@ -375,14 +375,14 @@ html[data-theme='xbox'] .gallery-thumb { overflow: visible; }
 
 html[data-theme='xbox'] .gallery-strip { margin: -8px; padding: 10px; }
 
-html[data-theme='xbox'] .card:has(.card-open:focus-visible)::after, html[data-theme='xbox'] .item-tile:focus-visible::after, html[data-theme='xbox'] .friend:focus-visible::after, html[data-theme='xbox'] .person:focus-visible::after, html[data-theme='xbox'] a.list-row:focus-visible::after, html[data-theme='xbox'] .xbox-profile-link:focus-visible::after, html[data-theme='xbox'] .gallery-thumb:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
+html[data-theme='xbox'] .card:has(.card-open:focus-visible)::after, html[data-theme='xbox'] .item-tile:focus-visible::after, html[data-theme='xbox'] .friend:focus-visible::after, html[data-theme='xbox'] .person:focus-visible::after, html[data-theme='xbox'] a.list-row:focus-visible::after, html[data-theme='xbox'] .xbox-profile-link:focus-visible::after, html[data-theme='xbox'] .gallery-thumb:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
 
-html[data-theme='xbox'] .play:focus-visible::after, html[data-theme='xbox'] .join:focus-visible::after, html[data-theme='xbox'] .buy:focus-visible::after, html[data-theme='xbox'] .more:focus-visible::after, html[data-theme='xbox'] .action:focus-visible::after, html[data-theme='xbox'] .avatar-try:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
+html[data-theme='xbox'] .play:focus-visible::after, html[data-theme='xbox'] .join:focus-visible::after, html[data-theme='xbox'] .buy:focus-visible::after, html[data-theme='xbox'] .more:focus-visible::after, html[data-theme='xbox'] .action:focus-visible::after, html[data-theme='xbox'] .avatar-try:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
 
 @media (hover: hover) {
-  html[data-theme='xbox'] .card:hover::after, html[data-theme='xbox'] .item-tile:hover::after, html[data-theme='xbox'] .friend:hover::after, html[data-theme='xbox'] .person:hover::after, html[data-theme='xbox'] a.list-row:hover::after, html[data-theme='xbox'] .xbox-profile-link:hover::after, html[data-theme='xbox'] .gallery-thumb:hover::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
+  html[data-theme='xbox'] .card:hover::after, html[data-theme='xbox'] .item-tile:hover::after, html[data-theme='xbox'] .friend:hover::after, html[data-theme='xbox'] .person:hover::after, html[data-theme='xbox'] a.list-row:hover::after, html[data-theme='xbox'] .xbox-profile-link:hover::after, html[data-theme='xbox'] .gallery-thumb:hover::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
 
-  html[data-theme='xbox'] .play:hover:not(:disabled)::after, html[data-theme='xbox'] .join:hover:not(:disabled)::after, html[data-theme='xbox'] .buy:hover:not(:disabled)::after, html[data-theme='xbox'] .more:hover:not(:disabled)::after, html[data-theme='xbox'] .action:hover:not(:disabled)::after, html[data-theme='xbox'] .avatar-try:hover:not(:disabled)::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
+  html[data-theme='xbox'] .play:hover:not(:disabled)::after, html[data-theme='xbox'] .join:hover:not(:disabled)::after, html[data-theme='xbox'] .buy:hover:not(:disabled)::after, html[data-theme='xbox'] .more:hover:not(:disabled)::after, html[data-theme='xbox'] .action:hover:not(:disabled)::after, html[data-theme='xbox'] .avatar-try:hover:not(:disabled)::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
 }
 
 @media (hover: none) {
@@ -449,7 +449,7 @@ html[data-theme='xbox'] .play:focus-visible::after, html[data-theme='xbox'] .joi
   html[data-theme='xbox'] .rail-item:active .rail-label { transform: none; }
 }
 
-.theme-preview[data-theme='xbox'] { background: #0d1c26 url('/launcher/xbox/poster.jpg') center / cover no-repeat; }
+.theme-preview[data-theme='xbox'] { background: #0d1c26 url('xbox/poster.jpg') center / cover no-repeat; }
 
 .theme-preview[data-theme='xbox'] .tp { grid-template-columns: 26cqw minmax(0, 1fr); grid-template-rows: 7.4cqw 7.4cqw minmax(0, 1fr); column-gap: 2.6cqw; padding: 0 3cqw; font-family: 'Source Sans', 'Segoe UI', sans-serif; background: rgba(13, 28, 38, 0.4); }
 
@@ -487,7 +487,7 @@ html[data-theme='xbox'] .play:focus-visible::after, html[data-theme='xbox'] .joi
 
 .theme-preview[data-theme='xbox'] .tp-art { aspect-ratio: 1; background: #000000; border-radius: 0; }
 
-.theme-preview[data-theme='xbox'] .tp-card.selected::after { content: ''; position: absolute; inset: -0.45cqw; border: 1.2cqw solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; }
+.theme-preview[data-theme='xbox'] .tp-card.selected::after { content: ''; position: absolute; inset: -0.45cqw; border: 1.2cqw solid transparent; border-image: url('xbox/selection.png') 19 stretch; }
 
 html[data-theme='xbox'] .friend-row { gap: 0; width: auto; align-items: stretch; }
 
@@ -535,7 +535,7 @@ html[data-theme='xbox'] body[data-page='game'] .content { padding-bottom: 24px; 
 
 .xg-vote { position: relative; height: calc(var(--u) * 114); outline-offset: 0; }
 
-.xg-vote-bar { position: absolute; top: calc(var(--u) * 34); left: calc(var(--u) * 88); width: calc(var(--u) * 203); height: calc(var(--u) * 16); background: linear-gradient(to right, #02b757 var(--share, 0%), #d86868 var(--share, 0%)); -webkit-mask: url('/launcher/xbox/shell/RatingBar.png') center / 100% 100% no-repeat; mask: url('/launcher/xbox/shell/RatingBar.png') center / 100% 100% no-repeat; }
+.xg-vote-bar { position: absolute; top: calc(var(--u) * 34); left: calc(var(--u) * 88); width: calc(var(--u) * 203); height: calc(var(--u) * 16); background: linear-gradient(to right, #02b757 var(--share, 0%), #d86868 var(--share, 0%)); -webkit-mask: url('xbox/shell/RatingBar.png') center / 100% 100% no-repeat; mask: url('xbox/shell/RatingBar.png') center / 100% 100% no-repeat; }
 
 .xg-vote-bar.empty { background: #808080; }
 
@@ -587,9 +587,9 @@ html[data-theme='xbox'] body[data-page='game'] .content { padding-bottom: 24px; 
 
 .xg-image-small .xg-tile { height: calc(var(--u) * 184); }
 
-.xg-more { position: absolute; top: calc(var(--u) * 611); right: calc(var(--u) * -3); width: calc(var(--u) * 108); height: calc(var(--u) * 50); max-height: calc(100% - var(--u) * 575); padding: 0; background: url('/launcher/xbox/shell/MoreButton.png') center / contain no-repeat; border: 0; }
+.xg-more { position: absolute; top: calc(var(--u) * 611); right: calc(var(--u) * -3); width: calc(var(--u) * 108); height: calc(var(--u) * 50); max-height: calc(100% - var(--u) * 575); padding: 0; background: url('xbox/shell/MoreButton.png') center / contain no-repeat; border: 0; }
 
-.xg-more:hover, .xg-more:focus-visible { background-image: url('/launcher/xbox/shell/MoreButtonSelected.png'); }
+.xg-more:hover, .xg-more:focus-visible { background-image: url('xbox/shell/MoreButtonSelected.png'); }
 
 .xg-col-images .xg-more { top: calc(var(--u) * 567); }
 
@@ -704,14 +704,14 @@ a.xg-creator:hover { color: #32b5ff; }
 html[data-theme='xbox'] .xg-tile:focus-visible, html[data-theme='xbox'] .xg-button:focus-visible, html[data-theme='xbox'] .xg-more:focus-visible { outline: 0; box-shadow: none; }
 
 @media (hover: hover) {
-  html[data-theme='xbox'] .xg-tile:hover::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
+  html[data-theme='xbox'] .xg-tile:hover::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
 
-  html[data-theme='xbox'] .xg-button:hover:not(:disabled)::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
+  html[data-theme='xbox'] .xg-button:hover:not(:disabled)::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
 }
 
-html[data-theme='xbox'] .xg-tile:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
+html[data-theme='xbox'] .xg-tile:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -7 / 19); }
 
-html[data-theme='xbox'] .xg-button:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('/launcher/xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
+html[data-theme='xbox'] .xg-button:focus-visible::after { content: ''; position: absolute; z-index: 4; border: var(--sel) solid transparent; border-image: url('xbox/selection.png') 19 stretch; pointer-events: none; inset: calc(var(--sel) * -16 / 19); }
 
 @media (max-width: 760px) {
   html[data-theme='xbox'] { --u: calc(100vw / 620); }
@@ -797,9 +797,9 @@ html[data-theme='xbox'] .avatar-frame > img { z-index: 1; }
 
 html[data-theme='xbox'] .avatar-frame:not(.is-3d) .xa-glow { position: absolute; top: 50%; left: 50%; display: block; height: 130%; aspect-ratio: 1; background: center / contain no-repeat; opacity: 0.8; pointer-events: none; animation: xa-glow 30s linear infinite; }
 
-html[data-theme='xbox'] .xa-glow-base { background-image: url('/launcher/xbox/shell/CharacterGlowBase.png'); }
+html[data-theme='xbox'] .xa-glow-base { background-image: url('xbox/shell/CharacterGlowBase.png'); }
 
-html[data-theme='xbox'] .avatar-frame:not(.is-3d) .xa-glow-top { background-image: url('/launcher/xbox/shell/CharacterGlowTop.png'); animation: xa-glow 120s linear infinite reverse; }
+html[data-theme='xbox'] .avatar-frame:not(.is-3d) .xa-glow-top { background-image: url('xbox/shell/CharacterGlowTop.png'); animation: xa-glow 120s linear infinite reverse; }
 
 @keyframes xa-glow {
   from { transform: translate(-50%, -50%) rotate(0deg); }
@@ -844,7 +844,7 @@ html[data-theme='xbox'] .avatar-panel .item-image { width: 100%; height: 100%; b
 
 html[data-theme='xbox'] .avatar-panel .item-tile:hover .item-image, html[data-theme='xbox'] .avatar-panel .item-tile[aria-pressed='true'] .item-image { background: none; box-shadow: none; }
 
-html[data-theme='xbox'] .avatar-panel .worn-mark { top: 0; right: 0; bottom: 0; left: 0; width: auto; height: auto; color: transparent; background: url('/launcher/xbox/shell/EquippedOverlay.png') center / 100% 100% no-repeat; border-radius: 0; }
+html[data-theme='xbox'] .avatar-panel .worn-mark { top: 0; right: 0; bottom: 0; left: 0; width: auto; height: auto; color: transparent; background: url('xbox/shell/EquippedOverlay.png') center / 100% 100% no-repeat; border-radius: 0; }
 
 html[data-theme='xbox'] .avatar-panel .worn-mark svg { display: none; }
 

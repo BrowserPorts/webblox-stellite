@@ -55,7 +55,7 @@
     form.innerHTML =
       '<header class="session-top">' +
         '<div class="session-logo" role="img" aria-label="WebBlox">' + MARK + '</div>' +
-        (window.WEBLOX_SERVER ? '<a class="session-switch" href="/?mode=node">Use local server</a>' : '') +
+        (window.WEBLOX_SERVER ? '<a class="session-switch" href="' + WEBBLOX_BASE + '?mode=node">Use local server</a>' : '') +
       '</header>' +
       '<div class="session-body">' +
         '<h1 id="session-title">' + (expired ? 'Your session expired' : 'Sign in') + '</h1>' +
@@ -103,7 +103,7 @@
     };
     const sheet = document.createElement('link');
     sheet.rel = 'stylesheet';
-    sheet.href = '/launcher/session.css';
+    sheet.href = `${WEBBLOX_BASE}launcher/session.css`;
     sheet.onload = sheet.onerror = () => document.body ? mount() : addEventListener('DOMContentLoaded', mount);
     document.head.appendChild(sheet);
   });

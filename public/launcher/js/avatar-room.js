@@ -1,6 +1,6 @@
 import * as THREE from '../vendor/three.module.js';
 
-const ROOM_URL = '/assets/classic/avatar-room/';
+const ROOM_URL = `${WEBBLOX_BASE}assets/classic/avatar-room/`;
 const FRESH = { cache: 'no-cache' };
 const SIMULATION_STEP = 0.1;
 const MAX_FRAME_TIME = 0.1;

@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'Source Sans 2020';
-  src: url('/launcher/loader-2016/SourceSansPro-Regular.ttf') format('truetype');
+  src: url('loader-2016/SourceSansPro-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: block;
 }
 
 @font-face {
   font-family: 'Source Sans 2020';
-  src: url('/launcher/loader-2020/SourceSansPro-Light.ttf') format('truetype');
+  src: url('loader-2020/SourceSansPro-Light.ttf') format('truetype');
   font-weight: 300;
   font-display: block;
 }
 
 @font-face {
   font-family: 'Source Sans 2020';
-  src: url('/launcher/loader-2016/SourceSansPro-Bold.ttf') format('truetype');
+  src: url('loader-2016/SourceSansPro-Bold.ttf') format('truetype');
   font-weight: 700;
   font-display: block;
 }
@@ -173,7 +173,7 @@ html[data-loader='2020'] #loading-overlay.loading-failed {
 .l20-spinner {
   position: absolute;
   inset: 0;
-  background: url('/launcher/loader-2020/robloxTilt.png') center / 100% 100% no-repeat;
+  background: url('loader-2020/robloxTilt.png') center / 100% 100% no-repeat;
 }
 
 .l20-close {
@@ -190,7 +190,7 @@ html[data-loader='2020'] #loading-overlay.loading-failed {
   display: block;
   width: 32px;
   height: 32px;
-  background: url('/launcher/loader-2020/cancelButton.png') center / 100% 100% no-repeat;
+  background: url('loader-2020/cancelButton.png') center / 100% 100% no-repeat;
   opacity: 0;
   pointer-events: none;
 }
@@ -254,7 +254,7 @@ html[data-loader-variant='white'] .l20-message {
 }
 
 html[data-loader-variant='white'] .l20-spinner {
-  background-image: url('/launcher/loader-2020/robloxTiltRed.png');
+  background-image: url('loader-2020/robloxTiltRed.png');
 }
 
 html[data-loader-variant='white'] #loader-2020 #loading-background-image {

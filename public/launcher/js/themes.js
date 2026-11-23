@@ -244,7 +244,7 @@ function savedUiEra() {
 }
 
 async function requestUiEras() {
-  const response = await fetch('/__uieras');
+  const response = await fetch(`${WEBBLOX_BASE}__uieras`);
   if (!response.ok) throw new Error(`in-game UI list returned ${response.status}`);
   return response.json();
 }
@@ -273,7 +273,7 @@ export function uiEraPicker() {
       });
       const preview = el('span', 'theme-preview ui-era-preview');
       const image = el('img');
-      image.src = `/launcher/ui-eras/${era.id || 'current'}.jpg`;
+      image.src = `${WEBBLOX_BASE}launcher/ui-eras/${era.id || 'current'}.jpg`;
       image.alt = '';
       image.loading = 'lazy';
       preview.append(image);

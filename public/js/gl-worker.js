@@ -2,6 +2,7 @@
 
 self.window = self;
 self.__webbloxWebGPU = true;
+self.WEBBLOX_BASE = new URL('../', self.location.href).pathname;
 importScripts('gl-ops.js', 'gl-webgpu-key.js', 'fullbright.js', 'gl-webgpu.js', 'light-grid.js');
 
 {

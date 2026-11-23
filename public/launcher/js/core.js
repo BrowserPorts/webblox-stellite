@@ -6,7 +6,7 @@ export const sessionId = crypto.randomUUID();
 const pageParams = new URLSearchParams(location.search);
 export const wispMode = window.WEBLOX_MODE === 'wisp';
 export const withMode = path => {
-  const url = new URL(path, location.origin);
+  const url = new URL(path.replace(/^\//, ''), location.origin + WEBBLOX_BASE);
   for (const name of ['mode', 'wisp', 'flagset']) if (pageParams.has(name)) url.searchParams.set(name, pageParams.get(name));
   return url.pathname + url.search;
 };
@@ -238,13 +238,13 @@ export function leaveFor(url) {
 }
 export const play = placeId => leaveFor(withMode(`/?placeId=${placeId}`));
 function joinWith(placeId, kind, value) {
-  document.cookie = `${JOIN_COOKIE}=${placeId}:${kind}:${value}; Path=/; Max-Age=120; SameSite=Strict`;
+  document.cookie = `${JOIN_COOKIE}=${placeId}:${kind}:${value}; Path=${WEBBLOX_BASE}; Max-Age=120; SameSite=Strict`;
   play(placeId);
 }
 export const joinServer = (placeId, serverId) => joinWith(placeId, 'g', serverId);
 export const joinPrivate = (placeId, accessCode) => joinWith(placeId, 'p', accessCode);
 export const clearJoin = () => {
-  document.cookie = `${JOIN_COOKIE}=; Path=/; Max-Age=0; SameSite=Strict`;
+  document.cookie = `${JOIN_COOKIE}=; Path=${WEBBLOX_BASE}; Max-Age=0; SameSite=Strict`;
 };
 
 export function toast(text, bad = false) {

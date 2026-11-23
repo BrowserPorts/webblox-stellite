@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Source Sans 2014';
-  src: url('/launcher/loader-2016/SourceSansPro-Regular.ttf') format('truetype');
+  src: url('loader-2016/SourceSansPro-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: block;
 }
 
 @font-face {
   font-family: 'Source Sans 2014';
-  src: url('/launcher/loader-2016/SourceSansPro-Bold.ttf') format('truetype');
+  src: url('loader-2016/SourceSansPro-Bold.ttf') format('truetype');
   font-weight: 700;
   font-display: block;
 }
@@ -93,7 +93,7 @@ html[data-loader='2014'] #loading-error-code {
   left: 0;
   width: 150%;
   height: 150%;
-  background: url('/launcher/loader-2014/loadingTexture.png') center / 100% 100% no-repeat;
+  background: url('loader-2014/loadingTexture.png') center / 100% 100% no-repeat;
   transform: translateX(-33.3333%);
 }
 
@@ -101,7 +101,7 @@ html[data-loader='2014'] #loading-error-code {
   position: absolute;
   z-index: 3;
   inset: 0;
-  background: url('/launcher/loader-2014/loadingvignette.png') center / 100% 100% no-repeat;
+  background: url('loader-2014/loadingvignette.png') center / 100% 100% no-repeat;
 }
 
 .l14-top {
@@ -122,7 +122,7 @@ html[data-loader='2014'] #loading-error-code {
   left: 214px;
   width: 128px;
   height: 128px;
-  background: url('/launcher/loader-2014/robloxlogo.png') center / 100% 100% no-repeat;
+  background: url('loader-2014/robloxlogo.png') center / 100% 100% no-repeat;
   rotate: 2deg;
 }
 
@@ -271,7 +271,7 @@ html[data-loader='2014'] #loading-error-code {
   display: block;
   width: 22px;
   height: 22px;
-  background: url('/launcher/loader-2014/CloseButton.png') center / 100% 100% no-repeat;
+  background: url('loader-2014/CloseButton.png') center / 100% 100% no-repeat;
   cursor: pointer;
 }
 

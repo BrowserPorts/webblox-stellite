@@ -15,7 +15,7 @@ import { refreshThemePreviews, watchTheme } from './themes.js';
 import { mountXbox, renderXboxProfile } from './xbox.js';
 import { mountTileHover } from './tilehover.js';
 
-const ENGINE_FILES = '/engine/';
+const ENGINE_FILES = `${WEBBLOX_BASE}engine/`;
 const HOME_KEY = 'webblox.launcher.home.v4';
 const CHARTS_KEY = 'webblox.launcher.charts.v2';
 const SHELL_KEY = 'webblox.launcher.shell';

@@ -5,7 +5,7 @@
   const frameLimit = Number(params.get('gltrace'));
   if (!(frameLimit > 0)) return;
 
-  const ENDPOINT = '/__gltrace';
+  const ENDPOINT = `${WEBBLOX_BASE}__gltrace`;
   const TRACE = params.get('gltracename') || new Date().toISOString().replace(/[:.]/g, '-');
   const FLUSH_BYTES = 32 * 1024 * 1024;
   const FLUSH_CALLS = 200000;

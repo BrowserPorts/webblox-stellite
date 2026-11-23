@@ -461,7 +461,7 @@ async function serverSettings(id, onChange) {
 }
 
 async function privateServerPrice(placeId) {
-  const page = await fetch(`/__proxy__/${robloxUrl(`/games/${placeId}/`)}`).then(res => (res.ok ? res.text() : ''));
+  const page = await fetch(`${WEBBLOX_BASE}__proxy__/${robloxUrl(`/games/${placeId}/`)}`).then(res => (res.ok ? res.text() : ''));
   const price = page.match(/data-private-server-price="(\d+)"/);
   return price ? Number(price[1]) : null;
 }

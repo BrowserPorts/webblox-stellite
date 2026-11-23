@@ -1,6 +1,6 @@
 import { el, link, state, thumbnails } from './core.js';
 
-const BASE = '/launcher/xbox/';
+const BASE = `${WEBBLOX_BASE}launcher/xbox/`;
 const SOUND_KEY = 'webblox.launcher.xbox.sound';
 const MUSIC_VOLUME = 0.33;
 const MUSIC_FADE = 1;

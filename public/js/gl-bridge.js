@@ -1081,7 +1081,7 @@
 
   const loadWorker = async () => {
     for (let attempt = 1; ; attempt++) {
-      const worker = new Worker(`/js/gl-worker.js${location.search}`);
+      const worker = new Worker(`${WEBBLOX_BASE}js/gl-worker.js${location.search}`);
       const failure = await new Promise(resolve => {
         worker.onerror = event => resolve(event.message || 'render worker failed to load');
         worker.onmessage = event => {

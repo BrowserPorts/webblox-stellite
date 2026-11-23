@@ -1,6 +1,6 @@
-@font-face { font-family: 'Builder Sans'; src: url('/assets/loading/BuilderSans-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Builder Sans'; src: url('/assets/loading/BuilderSans-Medium.otf') format('opentype'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Builder Sans'; src: url('/assets/loading/BuilderSans-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Builder Sans'; src: url('../assets/loading/BuilderSans-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Builder Sans'; src: url('../assets/loading/BuilderSans-Medium.otf') format('opentype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Builder Sans'; src: url('../assets/loading/BuilderSans-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
 
 .session-prompt {
   --session-gutter: 24px;
@@ -41,8 +41,8 @@
   position: absolute;
   inset: 0;
   background: currentColor;
-  -webkit-mask: url('/launcher/logo.png') center / 100% 100% no-repeat;
-  mask: url('/launcher/logo.png') center / 100% 100% no-repeat;
+  -webkit-mask: url('logo.png') center / 100% 100% no-repeat;
+  mask: url('logo.png') center / 100% 100% no-repeat;
 }
 
 .session-logo svg {

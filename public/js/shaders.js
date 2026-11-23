@@ -5,7 +5,7 @@
 
   const DB_NAME = 'webblox-shaders';
   const STORE = 'programs';
-  const SHARED_URL = '/gen/shader-warmup.json';
+  const SHARED_URL = `${WEBBLOX_BASE}gen/shader-warmup.json`;
   const canShare = window.WEBLOX_MODE === 'node';
   const MAX_PROGRAMS = 2000;
   const IN_FLIGHT = 12;
@@ -54,7 +54,7 @@
     if (!canShare || !unshared.size) return;
     const batch = [...unshared].map(([key, rec]) => ({ key, ...rec }));
     unshared.clear();
-    fetch('/__shaders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(batch) })
+    fetch(`${WEBBLOX_BASE}__shaders`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(batch) })
       .then(r => r.ok ? r.json() : null)
       .then(r => { if (r) for (const { key } of batch) sharedKeys.add(key); })
       .catch(() => {});

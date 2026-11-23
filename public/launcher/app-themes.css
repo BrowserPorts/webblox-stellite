@@ -1,5 +1,5 @@
-@font-face { font-family: 'Comic Neue'; src: url('/assets/classic/ComicNeue-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; size-adjust: 95.95%; }
-@font-face { font-family: 'Comic Neue'; src: url('/assets/classic/ComicNeue-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; size-adjust: 95.95%; }
+@font-face { font-family: 'Comic Neue'; src: url('../assets/classic/ComicNeue-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; size-adjust: 95.95%; }
+@font-face { font-family: 'Comic Neue'; src: url('../assets/classic/ComicNeue-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; size-adjust: 95.95%; }
 
 :root, [data-theme='Default-dark'] {
   color-scheme: dark;

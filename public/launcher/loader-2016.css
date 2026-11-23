@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Source Sans 2016';
-  src: url('/launcher/loader-2016/SourceSansPro-Regular.ttf') format('truetype');
+  src: url('loader-2016/SourceSansPro-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: block;
 }
 
 @font-face {
   font-family: 'Source Sans 2016';
-  src: url('/launcher/loader-2016/SourceSansPro-Bold.ttf') format('truetype');
+  src: url('loader-2016/SourceSansPro-Bold.ttf') format('truetype');
   font-weight: 700;
   font-display: block;
 }
@@ -93,7 +93,7 @@ html[data-loader='2016'] #loading-error-code {
 }
 
 .l16-texture {
-  background: url('/launcher/loader-2016/darkLoadingTexture.png') 0 0 / 512px 512px repeat;
+  background: url('loader-2016/darkLoadingTexture.png') 0 0 / 512px 512px repeat;
 }
 
 .l16-info {
@@ -182,7 +182,7 @@ html[data-loader='2016'] #loading-error-code {
 .l16-circle {
   position: absolute;
   inset: 0;
-  background: url('/launcher/loader-2016/loadingCircle.png') center / 100% 100% no-repeat;
+  background: url('loader-2016/loadingCircle.png') center / 100% 100% no-repeat;
   animation: l16-spin 2s linear infinite;
 }
 
@@ -211,7 +211,7 @@ html[data-loader='2016'] #loading-error-code {
   display: block;
   width: 32px;
   height: 32px;
-  background: url('/launcher/loader-2016/cancelButton.png') center / 100% 100% no-repeat;
+  background: url('loader-2016/cancelButton.png') center / 100% 100% no-repeat;
   opacity: 0;
   pointer-events: none;
 }
@@ -259,7 +259,7 @@ html[data-loader='2016'][data-loader-variant='console'] #loading-overlay.loading
   left: 22.8125%;
   width: 96px;
   height: 79px;
-  background: url('/launcher/loader-2016/ErrorIconSmall.png') center / 100% 100% no-repeat;
+  background: url('loader-2016/ErrorIconSmall.png') center / 100% 100% no-repeat;
   content: '';
 }
 
@@ -323,7 +323,7 @@ html[data-loader='2016'][data-loader-variant='console'] .loading-error-copy {
   left: 38px;
   width: 30px;
   height: 30px;
-  background: url('/launcher/loader-2016/RobloxIcon32.png') center / 100% 100% no-repeat;
+  background: url('loader-2016/RobloxIcon32.png') center / 100% 100% no-repeat;
 }
 
 #loader-2016 .l16-close.l16-cancel-label {
@@ -336,7 +336,7 @@ html[data-loader='2016'][data-loader-variant='console'] .loading-error-copy {
 #loader-2016.l16-console #loading-cancel {
   width: 83px;
   height: 83px;
-  background-image: url('/launcher/loader-2016/BButton.png');
+  background-image: url('loader-2016/BButton.png');
   cursor: pointer;
   opacity: 1;
   pointer-events: auto;
@@ -364,7 +364,7 @@ html[data-loader='2016'][data-loader-variant='console'] .loading-error-copy {
   height: 32px;
   padding: 0;
   border: 0;
-  background: url('/launcher/loader-2016/cancelButton.png') center / 100% 100% no-repeat;
+  background: url('loader-2016/cancelButton.png') center / 100% 100% no-repeat;
   cursor: pointer;
 }
 

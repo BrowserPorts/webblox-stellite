@@ -1,6 +1,6 @@
-@font-face { font-family: 'Builder Sans'; src: url('/assets/loading/BuilderSans-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Builder Sans'; src: url('/assets/loading/BuilderSans-Medium.otf') format('opentype'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Builder Sans'; src: url('/assets/loading/BuilderSans-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Builder Sans'; src: url('../assets/loading/BuilderSans-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Builder Sans'; src: url('../assets/loading/BuilderSans-Medium.otf') format('opentype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Builder Sans'; src: url('../assets/loading/BuilderSans-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
 
 :root {
   --gutter: 24px;
@@ -80,8 +80,8 @@ img { display: block; }
   position: absolute;
   inset: 0;
   background: currentColor;
-  -webkit-mask: url('/launcher/logo.png') center / 100% 100% no-repeat;
-  mask: url('/launcher/logo.png') center / 100% 100% no-repeat;
+  -webkit-mask: url('logo.png') center / 100% 100% no-repeat;
+  mask: url('logo.png') center / 100% 100% no-repeat;
 }
 
 .logo svg { position: absolute; left: 69.148%; top: 0; width: 15.095%; height: 100%; }
@@ -2176,7 +2176,7 @@ a.inventory-tile:hover .inventory-name { text-decoration: underline; text-underl
 
 .filters.market-filters { gap: 8px; }
 
-.item-label { position: absolute; bottom: -2px; left: -2px; z-index: 1; width: 123px; height: 18px; background: url(/launcher/roblox/item-labels.svg) no-repeat; pointer-events: none; }
+.item-label { position: absolute; bottom: -2px; left: -2px; z-index: 1; width: 123px; height: 18px; background: url(roblox/item-labels.svg) no-repeat; pointer-events: none; }
 
 .item-label.limited { background-position: 0 -54px; }
 
@@ -2486,13 +2486,13 @@ a.inventory-tile:hover .inventory-name { text-decoration: underline; text-underl
 
 .lp-panel .lp-creator { top: 75%; }
 
-.lp-2016 { background: #2d2d2d url('/launcher/loader-2016/darkLoadingTexture.png') 0 0 / 40cqw 40cqw repeat; font-family: 'Source Sans', sans-serif; color: #fff; text-align: left; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+.lp-2016 { background: #2d2d2d url('loader-2016/darkLoadingTexture.png') 0 0 / 40cqw 40cqw repeat; font-family: 'Source Sans', sans-serif; color: #fff; text-align: left; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
 
 .lp-2016 .lp-title { left: 7.8cqw; right: auto; bottom: 7cqw; max-width: 45cqw; font-size: 5.6cqw; font-weight: 400; line-height: 1; }
 
 .lp-2016 .lp-creator { left: 7.8cqw; right: auto; bottom: 4cqw; max-width: 45cqw; font-size: 2.4cqw; color: #fff; line-height: 1; }
 
-.lp-graphics { position: absolute; right: 8.2cqw; bottom: 3.5cqw; width: 9.4cqw; height: 9.4cqw; background: url('/launcher/loader-2016/loadingCircle.png') center / 100% 100% no-repeat; }
+.lp-graphics { position: absolute; right: 8.2cqw; bottom: 3.5cqw; width: 9.4cqw; height: 9.4cqw; background: url('loader-2016/loadingCircle.png') center / 100% 100% no-repeat; }
 
 .lp-loading { position: absolute; top: 50%; left: 2.2cqw; font-size: 1.2cqw; line-height: 1; white-space: nowrap; text-shadow: none; transform: translateY(-50%); }
 
@@ -2504,7 +2504,7 @@ a.inventory-tile:hover .inventory-name { text-decoration: underline; text-underl
 
 .lp-2020 .lp-creator { top: 63%; font-size: 3cqw; font-weight: 300; color: #fff; }
 
-.lp-spinner { position: absolute; right: 5%; bottom: 5%; width: 8cqw; height: 8cqw; background: url('/launcher/loader-2020/robloxTilt.png') center / 100% 100% no-repeat; }
+.lp-spinner { position: absolute; right: 5%; bottom: 5%; width: 8cqw; height: 8cqw; background: url('loader-2020/robloxTilt.png') center / 100% 100% no-repeat; }
 
 .lp-thumbnail.lp-square { top: 8%; width: 25cqw; aspect-ratio: 1; }
 
@@ -2514,11 +2514,11 @@ a.inventory-tile:hover .inventory-name { text-decoration: underline; text-underl
 
 .lp-white .lp-thumbnail { background: #e4e4e4; }
 
-.lp-white .lp-spinner { background-image: url('/launcher/loader-2020/robloxTiltRed.png'); }
+.lp-white .lp-spinner { background-image: url('loader-2020/robloxTiltRed.png'); }
 
 .lp-footer { position: absolute; left: 0; right: 0; bottom: 5cqw; display: flex; align-items: center; justify-content: center; gap: 0.8cqw; font-size: 2.2cqw; color: #d5d7dd; }
 
-.lp-wordmark { width: 11cqw; height: 1.5cqw; background: #d5d7dd; -webkit-mask: url('/launcher/tilt-assets/wordmark.png') center / 100% 100% no-repeat; mask: url('/launcher/tilt-assets/wordmark.png') center / 100% 100% no-repeat; }
+.lp-wordmark { width: 11cqw; height: 1.5cqw; background: #d5d7dd; -webkit-mask: url('tilt-assets/wordmark.png') center / 100% 100% no-repeat; mask: url('tilt-assets/wordmark.png') center / 100% 100% no-repeat; }
 
 .lp-classic.lp-launch { background: #393b3d; }
 
@@ -2530,17 +2530,17 @@ a.inventory-tile:hover .inventory-name { text-decoration: underline; text-underl
 
 .lp-cancel { position: absolute; top: 2.5cqw; right: 2.5cqw; display: flex; align-items: center; gap: 1.2cqw; font-size: 3.6cqw; text-shadow: none; }
 
-.lp-button-b { width: 6.5cqw; height: 6.5cqw; background: url('/launcher/loader-2016/BButton.png') center / 100% 100% no-repeat; }
+.lp-button-b { width: 6.5cqw; height: 6.5cqw; background: url('loader-2016/BButton.png') center / 100% 100% no-repeat; }
 
 .lp-2014 { overflow: hidden; background: #232326; font-family: 'Source Sans', sans-serif; color: #d9dae7; }
 
-.lp-texture { position: absolute; inset: 0; background: url('/launcher/loader-2014/loadingTexture.png') center / 150% 150% no-repeat; }
+.lp-texture { position: absolute; inset: 0; background: url('loader-2014/loadingTexture.png') center / 150% 150% no-repeat; }
 
-.lp-texture::after { content: ''; position: absolute; inset: 0; background: url('/launcher/loader-2014/loadingvignette.png') center / 100% 100% no-repeat; }
+.lp-texture::after { content: ''; position: absolute; inset: 0; background: url('loader-2014/loadingvignette.png') center / 100% 100% no-repeat; }
 
 .lp-top-bar { position: absolute; top: -13cqw; left: -14cqw; width: 80cqw; height: 18cqw; background: #3d3d43; outline: 1px solid #767681; transform: rotate(-10deg); }
 
-.lp-logo-2014 { position: absolute; top: 11.5cqw; left: 17cqw; width: 10cqw; height: 10cqw; background: url('/launcher/loader-2014/robloxlogo.png') center / 100% 100% no-repeat; transform: rotate(2deg); }
+.lp-logo-2014 { position: absolute; top: 11.5cqw; left: 17cqw; width: 10cqw; height: 10cqw; background: url('loader-2014/robloxlogo.png') center / 100% 100% no-repeat; transform: rotate(2deg); }
 
 .lp-bottom-bar { position: absolute; left: 0; right: 10cqw; bottom: -2cqw; height: 16cqw; background: #3d3d43; outline: 1px solid #767681; }
 
@@ -2943,7 +2943,7 @@ label.pref-row { cursor: pointer; }
 
 .tp-bar { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 3cqw; padding: 0 2.4cqw; border-bottom: 0.3cqw solid var(--line); }
 
-.tp-logo { width: 15cqw; aspect-ratio: 2418 / 366; color: var(--text); background: currentColor; -webkit-mask: url('/launcher/logo.png') center / 100% 100% no-repeat; mask: url('/launcher/logo.png') center / 100% 100% no-repeat; }
+.tp-logo { width: 15cqw; aspect-ratio: 2418 / 366; color: var(--text); background: currentColor; -webkit-mask: url('logo.png') center / 100% 100% no-repeat; mask: url('logo.png') center / 100% 100% no-repeat; }
 
 .tp-search { justify-self: center; display: flex; align-items: center; gap: 1cqw; width: 66%; height: 4.6cqw; padding: 0 1.4cqw; overflow: hidden; font-size: 1.8cqw; white-space: nowrap; color: var(--muted); background: var(--raised); border-radius: 1.4cqw; }
 
@@ -3123,33 +3123,33 @@ body.page-loading::before { content: ''; position: fixed; top: 0; right: 0; left
 .tp-bar, .tp-rail { background: var(--nav); }
 
 html[data-theme='Classic-dark'] .top {
-  background: url('/engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_dark.png') center / clamp(960px, 100%, 1920px) 100% no-repeat, linear-gradient(#042349, #042349 33%, var(--bg));
+  background: url('../engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_dark.png') center / clamp(960px, 100%, 1920px) 100% no-repeat, linear-gradient(#042349, #042349 33%, var(--bg));
 }
 
 html[data-theme='Classic-light'] .top {
-  background: url('/engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_light.png') center / clamp(960px, 100%, 1920px) 100% no-repeat, linear-gradient(#cdecff, #cdecff 33%, var(--bg));
+  background: url('../engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_light.png') center / clamp(960px, 100%, 1920px) 100% no-repeat, linear-gradient(#cdecff, #cdecff 33%, var(--bg));
 }
 
 html[data-theme='Halloween2026-dark'] body:is([data-page='home'], [data-page='settings']), html[data-theme='Halloween2026-dark'] body:is([data-page='home'], [data-page='settings']) .top {
-  background: var(--bg) url('/engine/ExtraContent/textures/ui/LuaApp/graphic/home_background_halloween2026.jpg') center / cover fixed no-repeat;
+  background: var(--bg) url('../engine/ExtraContent/textures/ui/LuaApp/graphic/home_background_halloween2026.jpg') center / cover fixed no-repeat;
 }
 
 .theme-preview[data-theme='Classic-dark'] .tp-bar {
-  background: url('/engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_dark.png') center / 100% 100% no-repeat, linear-gradient(#042349, #042349 33%, var(--bg));
+  background: url('../engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_dark.png') center / 100% 100% no-repeat, linear-gradient(#042349, #042349 33%, var(--bg));
 }
 
 .theme-preview[data-theme='Classic-light'] .tp-bar {
-  background: url('/engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_light.png') center / 100% 100% no-repeat, linear-gradient(#cdecff, #cdecff 33%, var(--bg));
+  background: url('../engine/ExtraContent/textures/ui/LuaApp/graphic/starburst_center_classic_light.png') center / 100% 100% no-repeat, linear-gradient(#cdecff, #cdecff 33%, var(--bg));
 }
 
-.theme-preview[data-theme='Halloween2026-dark'] { background: var(--bg) url('/engine/ExtraContent/textures/ui/LuaApp/graphic/home_background_halloween2026.jpg') center / cover no-repeat; }
+.theme-preview[data-theme='Halloween2026-dark'] { background: var(--bg) url('../engine/ExtraContent/textures/ui/LuaApp/graphic/home_background_halloween2026.jpg') center / cover no-repeat; }
 
 .theme-preview[data-theme='Halloween2026-dark'] .tp-bar { background: transparent; }
 
 html[data-theme^='Classic'] .logo { width: 148px; aspect-ratio: 934 / 209; }
 
 html[data-theme^='Classic'] .logo::before, .theme-preview[data-theme^='Classic'] .tp-logo {
-  background: url('/assets/classic/webblox-logo.png') center / contain no-repeat;
+  background: url('../assets/classic/webblox-logo.png') center / contain no-repeat;
   -webkit-mask: none;
   mask: none;
 }

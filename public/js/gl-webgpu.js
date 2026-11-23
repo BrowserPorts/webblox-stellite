@@ -2858,7 +2858,7 @@ struct V { @builtin(position) pos: vec4f, @location(0) uv: vec2f };
       if (adapter.limits[key] !== undefined) requiredLimits[key] = adapter.limits[key];
     }
     const device = await adapter.requestDevice({ requiredFeatures, requiredLimits });
-    const table = await loadTable(tableBase || '/gen/');
+    const table = await loadTable(tableBase || `${self.WEBBLOX_BASE || '/'}gen/`);
     if (!window.__webbloxShaderKey) throw new Error('shader key script missing');
     shared = new Shared(device, table, window.__webbloxShaderKey);
     return device;

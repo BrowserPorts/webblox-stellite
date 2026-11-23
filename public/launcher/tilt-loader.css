@@ -367,8 +367,8 @@ html[data-loader='tilt'] #loading-overlay.loading-failed {
   width: 86.7692px;
   height: 12px;
   background: #d5d7dd;
-  -webkit-mask: url('/launcher/tilt-assets/wordmark.png') center / 100% 100% no-repeat;
-  mask: url('/launcher/tilt-assets/wordmark.png') center / 100% 100% no-repeat;
+  -webkit-mask: url('tilt-assets/wordmark.png') center / 100% 100% no-repeat;
+  mask: url('tilt-assets/wordmark.png') center / 100% 100% no-repeat;
 }
 
 @media (max-width: 600px), (max-height: 600px) {

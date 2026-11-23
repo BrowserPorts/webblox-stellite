@@ -298,10 +298,9 @@ function clearKeys(pattern) {
 }
 
 function advancedPanel() {
-  const relay = window.CobaltIframe?.wispUrl || window.COBALT_WISP_URLS?.[0] || '';
   const connection = wispMode
-    ? row(`Connected through ${relay ? new URL(relay).host : 'a Wisp relay'}`, ...(window.WEBLOX_SERVER ? [link('more', '/?mode=node', 'Use this computer')] : []))
-    : row('Connected through this computer', link('more', '/?mode=wisp', 'Use Wisp'));
+    ? row('Connected through a Wisp relay', ...(window.WEBLOX_SERVER ? [link('more', `${WEBBLOX_BASE}?mode=node`, 'Use this computer')] : []))
+    : row('Connected through this computer', link('more', `${WEBBLOX_BASE}?mode=wisp`, 'Use Wisp'));
 
   const hidden = el('div');
   hiddenRows(hidden);

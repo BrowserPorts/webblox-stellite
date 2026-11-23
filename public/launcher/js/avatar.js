@@ -192,7 +192,7 @@ function equipHint() {
   const hint = el('div', 'xa-hint');
   hint.hidden = true;
   const glyph = el('img');
-  glyph.src = '/launcher/xbox/shell/XButton.png';
+  glyph.src = `${WEBBLOX_BASE}launcher/xbox/shell/XButton.png`;
   glyph.alt = '';
   const text = el('span');
   hint.append(glyph, text);

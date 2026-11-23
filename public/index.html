@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
   <script>
+    // Everything is addressed from this folder, so the site works at the root of an origin or under any path
+    (function () {
+      var base = location.pathname.replace(/(?:games\/start|[^\/]*)$/, '');
+      window.WEBBLOX_BASE = base;
+      var tag = document.createElement('base');
+      tag.href = base;
+      document.head.prepend(tag);
+    })();
+  </script>
+  <script>
     (function () {
       var scheme = matchMedia('(prefers-color-scheme: dark)');
       var write = function () {
@@ -49,10 +59,10 @@
       var opened = new URLSearchParams(location.search);
       if (mode === 'wisp' && !opened.has('placeId') && !opened.has('launcher') && !opened.has('flag')) {
         window.stop();
-        location.replace('/launcher/' + location.search + location.hash);
+        location.replace(WEBBLOX_BASE + 'launcher/' + location.search + location.hash);
         return;
       }
-      var framePrefix = mode === 'node' ? '/__proxy__/' : '/__frame__/';
+      var framePrefix = WEBBLOX_BASE + (mode === 'node' ? '__proxy__/' : '__frame__/');
       window.__webbloxWebViewUrl = function (url) {
         return /^https?:\/\//i.test(url) ? location.origin + framePrefix + url : url;
       };
@@ -83,7 +93,7 @@
     (function(){
       if (window.WEBLOX_MODE !== 'node') return;
       var origin = location.origin;
-      var proxyPrefix = origin + '/__proxy__/';
+      var proxyPrefix = origin + WEBBLOX_BASE + '__proxy__/';
 
       function isCrossOrigin(url) {
         if (!url) return false;
@@ -121,7 +131,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WebBlox</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; overflow: hidden; background: #18191c; }
@@ -154,26 +164,26 @@
 
     @font-face {
       font-family: 'Builder Sans';
-      src: url('/assets/loading/BuilderSans-Regular.otf') format('opentype');
+      src: url('assets/loading/BuilderSans-Regular.otf') format('opentype');
       font-weight: 400;
     }
     @font-face {
       font-family: 'Builder Sans';
-      src: url('/assets/loading/BuilderSans-Medium.otf') format('opentype');
+      src: url('assets/loading/BuilderSans-Medium.otf') format('opentype');
       font-weight: 500;
     }
     @font-face {
       font-family: 'Builder Sans';
-      src: url('/assets/loading/BuilderSans-Bold.otf') format('opentype');
+      src: url('assets/loading/BuilderSans-Bold.otf') format('opentype');
       font-weight: 700;
     }
   </style>
-  <link rel="stylesheet" href="/launcher/roblox-loader.css">
-  <link rel="stylesheet" href="/launcher/tilt-loader.css">
-  <link rel="stylesheet" href="/launcher/loader-2016.css">
-  <link rel="stylesheet" href="/launcher/loader-2020.css">
-  <link rel="stylesheet" href="/launcher/loader-2014.css">
-  <link rel="stylesheet" href="/launcher/loader-client.css">
+  <link rel="stylesheet" href="launcher/roblox-loader.css">
+  <link rel="stylesheet" href="launcher/tilt-loader.css">
+  <link rel="stylesheet" href="launcher/loader-2016.css">
+  <link rel="stylesheet" href="launcher/loader-2020.css">
+  <link rel="stylesheet" href="launcher/loader-2014.css">
+  <link rel="stylesheet" href="launcher/loader-client.css">
   <script>
     (() => {
       const root = document.documentElement;
@@ -194,8 +204,8 @@
         root.dataset.loaderVariant = variants[loader].includes(variant) ? variant : variants[loader][0];
         const era = localStorage.getItem('webblox.launcher.uiEra');
         document.cookie = era && /^[a-z0-9-]+$/.test(era)
-          ? `webblox_ui_era=${era}; Path=/; SameSite=Strict`
-          : 'webblox_ui_era=; Path=/; Max-Age=0; SameSite=Strict';
+          ? `webblox_ui_era=${era}; Path=${WEBBLOX_BASE}; SameSite=Strict`
+          : `webblox_ui_era=; Path=${WEBBLOX_BASE}; Max-Age=0; SameSite=Strict`;
       } catch (e) {}
     })();
   </script>
@@ -265,7 +275,7 @@
         new MutationObserver(sync).observe(status, { attributes: true, attributeFilter: ['aria-valuenow'] });
 
         window.__webbloxImageUrl = url => window.WEBLOX_MODE === 'node' && /^https?:\/\//.test(url)
-          ? location.origin + '/__proxy__/' + url
+          ? location.origin + WEBBLOX_BASE + '__proxy__/' + url
           : url;
 
         window.__webbloxExit = () => {
@@ -274,15 +284,15 @@
           if (current.get('launcher') === 'roblox') next.set('launcher', 'roblox');
           for (const name of ['mode', 'wisp', 'flagset']) if (current.has(name)) next.set(name, current.get(name));
           const query = next.toString();
-          location.replace(query ? '/?' + query : '/');
+          location.replace(WEBBLOX_BASE + (query ? '?' + query : ''));
         };
       })();
     </script>
-    <script src="/launcher/tilt-loader.js"></script>
-    <script src="/launcher/loader-2016.js"></script>
-    <script src="/launcher/loader-2020.js"></script>
-    <script src="/launcher/loader-2014.js"></script>
-    <script src="/launcher/loader-client.js"></script>
+    <script src="launcher/tilt-loader.js"></script>
+    <script src="launcher/loader-2016.js"></script>
+    <script src="launcher/loader-2020.js"></script>
+    <script src="launcher/loader-2014.js"></script>
+    <script src="launcher/loader-client.js"></script>
   </div>
 
   <div class="emscripten" hidden>
@@ -290,19 +300,19 @@
     <span id="proxyenabled"></span>
   </div>
 
-  <script src="/js/mouse-capture.js"></script>
-  <script src="/js/gl-webgpu-key.js"></script>
-  <script src="/js/fullbright.js"></script>
-  <script src="/js/gl-webgpu.js"></script>
-  <script src="/js/gl-ops.js"></script>
-  <script src="/js/gl-bridge.js"></script>
-  <script src="/js/gl-trace.js"></script>
-  <script src="/js/perf.js"></script>
-  <script src="/js/gl-origin.js"></script>
-  <script src="/js/vertex-state.js"></script>
-  <script src="/js/ubo-stream.js"></script>
-  <script src="/js/light-grid.js"></script>
-  <script src="/js/shaders.js"></script>
+  <script src="js/mouse-capture.js"></script>
+  <script src="js/gl-webgpu-key.js"></script>
+  <script src="js/fullbright.js"></script>
+  <script src="js/gl-webgpu.js"></script>
+  <script src="js/gl-ops.js"></script>
+  <script src="js/gl-bridge.js"></script>
+  <script src="js/gl-trace.js"></script>
+  <script src="js/perf.js"></script>
+  <script src="js/gl-origin.js"></script>
+  <script src="js/vertex-state.js"></script>
+  <script src="js/ubo-stream.js"></script>
+  <script src="js/light-grid.js"></script>
+  <script src="js/shaders.js"></script>
 
   <script>
     (() => {
@@ -403,7 +413,7 @@
     };
     const loadFlagSet = async name => {
       try {
-        const res = await fetchWithoutSettings(name === 'pinned' ? '/engine/PinnedFlags.json' : `/__flagset/${name}.json`, { cache: 'no-cache' });
+        const res = await fetchWithoutSettings(name === 'pinned' ? WEBBLOX_BASE + 'engine/PinnedFlags.json' : `${WEBBLOX_BASE}__flagset/${name}.json`, { cache: 'no-cache' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const set = await res.json();
         if (!set || !set.applicationSettings || typeof set.applicationSettings !== 'object') throw new Error('it has no applicationSettings');
@@ -447,7 +457,7 @@
         const base = set ? { ...set.applicationSettings } : await liveFlags(self, args);
         let local = {};
         try {
-          const own = await fetchWithoutSettings('/engine/WebFlags.json', { cache: 'no-cache' });
+          const own = await fetchWithoutSettings(WEBBLOX_BASE + 'engine/WebFlags.json', { cache: 'no-cache' });
           if (own.ok) local = (await own.json()).applicationSettings || {};
         } catch (e) {}
         const urlFlags = {};
@@ -555,7 +565,7 @@
       const poll = async () => {
         if (document.visibilityState === 'visible') {
           try {
-            const data = await (await fetch('/__settings', { cache: 'no-store' })).json();
+            const data = await (await fetch(WEBBLOX_BASE + '__settings', { cache: 'no-store' })).json();
             if (data.version !== version) {
               version = data.version;
               applySettingsUpdate(data.settings);
@@ -564,7 +574,7 @@
         }
         setTimeout(poll, SETTINGS_POLL_MS);
       };
-      return fetch('/__settings', { method: 'POST', body: JSON.stringify(loadSettings()) })
+      return fetch(WEBBLOX_BASE + '__settings', { method: 'POST', body: JSON.stringify(loadSettings()) })
         .then(res => res.json())
         .then(data => {
           version = data.version;
@@ -587,7 +597,7 @@
       : promise;
 
     const workerReady = async () => {
-      const reg = await navigator.serviceWorker.register('/sw.js?mode=' + mode, { scope: '/' });
+      const reg = await navigator.serviceWorker.register(WEBBLOX_BASE + 'sw.js?mode=' + mode, { scope: WEBBLOX_BASE });
       if (reg.installing || reg.waiting) {
         const sw = reg.installing || reg.waiting;
         await new Promise(resolve => {
@@ -645,12 +655,16 @@
 
       if (mode === 'wisp') {
         try {
-          await loadScript('/cobalt/wisps.js');
-          await loadScript('/cobalt/cobalt.js');
-          var wispOverride = new URLSearchParams(location.search).get('wisp');
-          if (wispOverride && /^wss?:\/\//i.test(wispOverride)) window.COBALT_WISP_URLS = [wispOverride];
-          if (window.CobaltIframe) window.CobaltIframe.wispUrl = (window.COBALT_WISP_URLS || [])[0];
-          await loadScript('/js/upstream.js');
+          await loadScript(WEBBLOX_BASE + 'cobalt/wisps.js');
+          await loadScript(WEBBLOX_BASE + 'cobalt/cobalt.js');
+          var relays = new URLSearchParams(location.search).getAll('wisp').filter(function (url) { return /^wss?:\/\//i.test(url); });
+          if (relays.length) window.COBALT_WISP_URLS = relays;
+          if (!(window.COBALT_WISP_URLS || []).length) throw new Error('no Wisp relay was given, open this page with ?wisp=wss://your-relay/');
+          if (window.CobaltIframe) {
+            window.CobaltIframe.wispUrls = window.COBALT_WISP_URLS;
+            window.CobaltIframe.wispUrl = window.COBALT_WISP_URLS[0];
+          }
+          await loadScript(WEBBLOX_BASE + 'js/upstream.js');
           await window.webbloxSessionReady;
         } catch (err) {
           console.error('[local] wisp transport failed to load:', err);
@@ -661,7 +675,7 @@
       window.robloxWasmHostConfig = {
         server: 'prod',
         useCdnBinary: false,
-        workerStubUrl: '/engine/stub.js'
+        workerStubUrl: WEBBLOX_BASE + 'engine/stub.js'
       };
 
       var version = 'version-db62701aba0b4bcd';
@@ -693,7 +707,7 @@
 
       startupStep = 'engine files';
       var script = document.createElement('script');
-      script.src = '/engine/WasmLoader.js';
+      script.src = WEBBLOX_BASE + 'engine/WasmLoader.js';
       document.body.appendChild(script);
     })();
   </script>

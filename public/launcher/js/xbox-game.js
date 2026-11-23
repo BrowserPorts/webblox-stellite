@@ -1,7 +1,7 @@
 import { api, button, card, compact, el, failed, hiddenGames, icon, image, joinServer, link, longDate, play, robloxUrl, send, setGameHidden, state, thumbnails, toast } from './core.js';
 import { previousPageName } from './xbox.js';
 
-const SHELL = '/launcher/xbox/shell/';
+const SHELL = `${WEBBLOX_BASE}launcher/xbox/shell/`;
 const BADGE_GRID = 4;
 const BADGE_SIZE = '150x150';
 const ICON_SIZE = '512x512';

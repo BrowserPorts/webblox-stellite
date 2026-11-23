@@ -50,7 +50,7 @@ function cdnUrl(value) {
   return `https://t${hash % 8}.rbxcdn.com/${value}`;
 }
 
-const proxied = value => `/__proxy__/${cdnUrl(value)}`;
+const proxied = value => `${WEBBLOX_BASE}__proxy__/${cdnUrl(value)}`;
 
 async function fetchText(value) {
   const res = await fetch(proxied(value));
