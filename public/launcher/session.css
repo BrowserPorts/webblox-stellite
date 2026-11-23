@@ -135,6 +135,26 @@
   cursor: not-allowed;
 }
 
+.session-roblox {
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+}
+
+.session-or {
+  margin: 8px 0 0;
+  color: var(--muted, #bcbec8);
+  font-size: 14px;
+  text-align: center;
+}
+
+.session-paste {
+  color: var(--text, #f7f7f8);
+  background: var(--raised, #191a1f);
+}
+
+.session-paste:hover:not(:disabled) { background: var(--hover, #282931); }
+
 @media (max-width: 720px) {
   .session-prompt { --session-gutter: 16px; }
 }

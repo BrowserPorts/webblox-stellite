@@ -47,6 +47,38 @@
     }
   }
 
+  // Roblox's own launcher starts signed out and shows Roblox's sign-in page. Signing in there stores the session in
+  // the same jar, so that page is let through without one
+  const pageParams = new URLSearchParams(location.search);
+  const ROBLOX_PAGE = pageParams.get('launcher') === 'roblox';
+  const SIGNING_IN = 'webblox.signingIn';
+  const carried = extra => {
+    const next = new URLSearchParams(extra);
+    for (const name of ['mode', 'wisp', 'flagset']) for (const value of pageParams.getAll(name)) next.append(name, value);
+    return next.toString();
+  };
+  const robloxSignIn = () => WEBBLOX_BASE + '?' + carried({ launcher: 'roblox' });
+  const forgetLauncherCache = () => {
+    try {
+      Object.keys(localStorage).filter(key => /^webblox\.launcher\.(home|shell)/.test(key)).forEach(key => localStorage.removeItem(key));
+    } catch {}
+  };
+
+  // Someone who came here from the sign-in form goes back to the WebBlox launcher once Roblox accepts the sign-in.
+  // The worker announces each sign-in answer, and the session is in the jar a moment after a good one
+  if (ROBLOX_PAGE && sessionStorage.getItem(SIGNING_IN) && typeof BroadcastChannel === 'function') {
+    new BroadcastChannel('webblox-quick-login').addEventListener('message', async event => {
+      const msg = event.data;
+      if (!msg || msg.step !== 'login' || msg.httpStatus !== 200) return;
+      for (let i = 0; i < 50 && !hasSession(); i++) await new Promise(resolve => setTimeout(resolve, 100));
+      if (!hasSession()) return;
+      sessionStorage.removeItem(SIGNING_IN);
+      forgetLauncherCache();
+      const query = carried();
+      location.replace(WEBBLOX_BASE + 'launcher/' + (query ? '?' + query : ''));
+    });
+  }
+
   const askForSession = expired => new Promise(resolve => {
     const form = document.createElement('form');
     form.className = 'session-prompt';
@@ -59,12 +91,14 @@
       '</header>' +
       '<div class="session-body">' +
         '<h1 id="session-title">' + (expired ? 'Your session expired' : 'Sign in') + '</h1>' +
+        '<a class="session-submit session-roblox" href="' + robloxSignIn().replace(/"/g, '&quot;') + '">Sign in with Roblox</a>' +
+        '<p class="session-or">or paste a session cookie</p>' +
         '<div class="session-field">' +
           '<label for="session-cookie">.ROBLOSECURITY</label>' +
           '<input id="session-cookie" name="cookie" type="password" autocomplete="off" spellcheck="false" aria-describedby="session-error">' +
           '<p class="session-error" id="session-error" role="alert"></p>' +
         '</div>' +
-        '<button class="session-submit" type="submit">Sign in</button>' +
+        '<button class="session-submit session-paste" type="submit">Use this cookie</button>' +
       '</div>';
     const input = form.querySelector('input');
     const error = form.querySelector('.session-error');
@@ -77,7 +111,10 @@
       error.textContent = '';
       input.removeAttribute('aria-invalid');
     });
-    const submit = form.querySelector('.session-submit');
+    const submit = form.querySelector('.session-paste');
+    form.querySelector('.session-roblox').addEventListener('click', () => {
+      try { sessionStorage.setItem(SIGNING_IN, '1'); } catch {}
+    });
     form.onsubmit = async e => {
       e.preventDefault();
       const v = input.value.trim().replace(/^\.ROBLOSECURITY=/, '');
@@ -91,15 +128,12 @@
         forgetSession();
         return fail('Roblox rejected that session.');
       }
-      try {
-        Object.keys(localStorage).filter(key => /^webblox\.launcher\.(home|shell)/.test(key)).forEach(key => localStorage.removeItem(key));
-      } catch {}
+      forgetLauncherCache();
       form.remove();
       resolve();
     };
     const mount = () => {
       document.body.appendChild(form);
-      input.focus();
     };
     const sheet = document.createElement('link');
     sheet.rel = 'stylesheet';
@@ -112,6 +146,7 @@
     const saved = hasSession();
     if (saved && await sessionAccepted()) return;
     if (saved) forgetSession();
+    if (ROBLOX_PAGE) return;
     await askForSession(saved);
   })();
 
