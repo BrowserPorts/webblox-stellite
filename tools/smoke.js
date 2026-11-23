@@ -107,7 +107,6 @@ async function main() {
     check('device theme reaches the engine', theme === 1 || theme === 2, theme === 1 ? 'light' : theme === 2 ? 'dark' : String(theme));
 
     const signedIn = await tab.evaluate("fetch('/__proxy__/https://users.roblox.com/v1/users/authenticated').then(r => r.status === 200).catch(() => false)");
-    console.log(signedIn ? '  signed in, running the account checks' : '  signed out, skipping the account checks (sign in once in a profile and pass it as WEBBLOX_PROFILE)');
     if (signedIn) {
       const policy = await tab.evaluate("fetch('/__proxy__/https://apis.roblox.com/guac-v2/v1/bundles/app-policy').then(r => r.json()).then(p => p.EnableWebViewSupport === true).catch(() => false)");
       check('app policy enables web views', policy === true);
@@ -121,7 +120,7 @@ async function main() {
       });
       check('web views render in the in-app layout', /data-is-in-app="true"/.test(html));
     } else {
-      console.log('  skip  signed-in checks (no .roblosecurity)');
+      console.log('  skip  signed-in checks (sign in once in a profile and pass it as WEBBLOX_PROFILE)');
     }
 
     await sleep(3000);
