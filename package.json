@@ -1,0 +1,25 @@
+{
+  "name": "webblox",
+  "private": true,
+  "scripts": {
+    "start": "node server",
+    "patch": "node tools/patch-engine.js",
+    "prep": "node tools/prep.js",
+    "bench": "node tools/bench.js",
+    "smoke": "node tools/smoke.js",
+    "update-engine": "node tools/update-engine.js",
+    "autoport": "node tools/autoport/cli.js",
+    "autoport:test": "node --test \"tools/autoport/test/*.test.js\"",
+    "flags": "node tools/flagguard/cli.js",
+    "flags:test": "node --test \"tools/flagguard/test/*.test.js\"",
+    "update-launcher": "node tools/update-launcher.js",
+    "port-shaders": "node tools/port-shaders.js",
+    "build-wgsl": "node tools/build-wgsl.mjs",
+    "cache": "node tools/cache.js",
+    "ktx2png": "node fun/viewer/ktx2-png.js",
+    "viewer": "node fun/viewer/server.js"
+  },
+  "devDependencies": {
+    "naga-wasm": "^30.2.0"
+  }
+}

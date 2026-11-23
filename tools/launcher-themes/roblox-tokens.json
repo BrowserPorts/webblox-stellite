@@ -1,0 +1,972 @@
+{
+ "ramps": {
+  "red": [
+   "#ffeae9",
+   "#ffdfde",
+   "#f7cdcb",
+   "#f3b2ae",
+   "#ee9791",
+   "#eb7973",
+   "#e75750",
+   "#df281f",
+   "#c5120a",
+   "#a41109",
+   "#830f07",
+   "#640c05",
+   "#470804",
+   "#280603"
+  ],
+  "green": [
+   "#d0fbe3",
+   "#b0f6d0",
+   "#8ee9b6",
+   "#65d79d",
+   "#39c582",
+   "#1db16a",
+   "#0c9b5a",
+   "#01854b",
+   "#027240",
+   "#015f35",
+   "#004a29",
+   "#01381f",
+   "#0a2612",
+   "#00160c"
+  ],
+  "blue": [
+   "#ebf1ff",
+   "#ccddff",
+   "#adc9ff",
+   "#8fb4ff",
+   "#70a0ff",
+   "#528bff",
+   "#335fff",
+   "#1446ff",
+   "#0035f5",
+   "#002dd6",
+   "#0027b8",
+   "#002299",
+   "#001b7a",
+   "#00145c"
+  ]
+ },
+ "themes": {
+  "CircuitRush": {
+   "Dark": {
+    "Surface.Surface_0": "#062720",
+    "Surface.Surface_100": "#072c24",
+    "Surface.Surface_300": "#09392f",
+    "Content.Emphasis": "#f4f7f6",
+    "Content.Default": "#dfe6e4",
+    "Content.Muted": "#b5c0bd",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#d0f5ec",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#d0f5ec",
+     0.84
+    ],
+    "State.Hover": [
+     "#d0f5ec",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#031c17"
+   },
+   "Light": {
+    "Surface.Surface_0": "#eaffea",
+    "Surface.Surface_100": "#c1ecc3",
+    "Surface.Surface_300": "#c1ecc3",
+    "Content.Emphasis": "#151a15",
+    "Content.Default": "#4c564c",
+    "Content.Muted": "#5d665d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#293e29",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#293e29",
+     0.84
+    ],
+    "State.Hover": [
+     "#293e29",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#c1ecc3"
+   }
+  },
+  "Classic": {
+   "Dark": {
+    "Surface.Surface_0": "#121215",
+    "Surface.Surface_100": "#191a1f",
+    "Surface.Surface_300": "#272930",
+    "Content.Emphasis": "#f7f7f8",
+    "Content.Default": "#d5d7dd",
+    "Content.Muted": "#bcbec8",
+    "Content.Link": "#528bff",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#f04433",
+    "Stroke.Default": [
+     "#d0d9fb",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#d0d9fb",
+     0.84
+    ],
+    "State.Hover": [
+     "#d0d9fb",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#042349"
+   },
+   "Light": {
+    "Surface.Surface_0": "#ffffff",
+    "Surface.Surface_100": "#f7f7f8",
+    "Surface.Surface_300": "#f7f7f8",
+    "Content.Emphasis": "#202227",
+    "Content.Default": "#494d5a",
+    "Content.Muted": "#6a6f81",
+    "Content.Link": "#1446ff",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#d91c15",
+    "Stroke.Default": [
+     "#1b254b",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#1b254b",
+     0.84
+    ],
+    "State.Hover": [
+     "#1b254b",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#d6f0ff"
+   }
+  },
+  "CosmicDust": {
+   "Dark": {
+    "Surface.Surface_0": "#480b98",
+    "Surface.Surface_100": "#4f0ca6",
+    "Surface.Surface_300": "#5f1bc4",
+    "Content.Emphasis": "#f6f6f8",
+    "Content.Default": "#e4e3e9",
+    "Content.Muted": "#bebbc4",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#eee7ff",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#eee7ff",
+     0.84
+    ],
+    "State.Hover": [
+     "#eee7ff",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#300363"
+   },
+   "Light": {
+    "Surface.Surface_0": "#ede6ff",
+    "Surface.Surface_100": "#e6dbff",
+    "Surface.Surface_300": "#e6dbff",
+    "Content.Emphasis": "#18171d",
+    "Content.Default": "#53515d",
+    "Content.Muted": "#63616d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#39334d",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#39334d",
+     0.84
+    ],
+    "State.Hover": [
+     "#39334d",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#d5c3fd"
+   }
+  },
+  "Default": {
+   "Dark": {
+    "Surface.Surface_0": "#121215",
+    "Surface.Surface_100": "#191a1f",
+    "Surface.Surface_300": "#272930",
+    "Content.Emphasis": "#f7f7f8",
+    "Content.Default": "#d5d7dd",
+    "Content.Muted": "#bcbec8",
+    "Content.Link": "#528bff",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#f04433",
+    "Stroke.Default": [
+     "#d0d9fb",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#d0d9fb",
+     0.84
+    ],
+    "State.Hover": [
+     "#d0d9fb",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#121215"
+   },
+   "Light": {
+    "Surface.Surface_0": "#ffffff",
+    "Surface.Surface_100": "#f7f7f8",
+    "Surface.Surface_300": "#f7f7f8",
+    "Content.Emphasis": "#202227",
+    "Content.Default": "#494d5a",
+    "Content.Muted": "#6a6f81",
+    "Content.Link": "#1446ff",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#d91c15",
+    "Stroke.Default": [
+     "#1b254b",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#1b254b",
+     0.84
+    ],
+    "State.Hover": [
+     "#1b254b",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#ffffff"
+   }
+  },
+  "ElectricLime": {
+   "Dark": {
+    "Surface.Surface_0": "#2e3c02",
+    "Surface.Surface_100": "#334202",
+    "Surface.Surface_300": "#3f5103",
+    "Content.Emphasis": "#f6f6f4",
+    "Content.Default": "#e3e5df",
+    "Content.Muted": "#bcbeb6",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#e7f0d2",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#e7f0d2",
+     0.84
+    ],
+    "State.Hover": [
+     "#e7f0d2",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#1d2404"
+   },
+   "Light": {
+    "Surface.Surface_0": "#dff1b4",
+    "Surface.Surface_100": "#d6eba3",
+    "Surface.Surface_300": "#d6eba3",
+    "Content.Emphasis": "#171913",
+    "Content.Default": "#505448",
+    "Content.Muted": "#61655a",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#343c21",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#343c21",
+     0.84
+    ],
+    "State.Hover": [
+     "#333c21",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#bfdb6b"
+   }
+  },
+  "Halloween2026": {
+   "Dark": {
+    "Surface.Surface_0": "#260808",
+    "Surface.Surface_100": "#360c0c",
+    "Surface.Surface_300": "#501111",
+    "Content.Emphasis": "#f7f7f8",
+    "Content.Default": "#d5d7dd",
+    "Content.Muted": "#bcbec8",
+    "Content.Link": "#71a0fe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#d0d9fb",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#d0d9fb",
+     0.84
+    ],
+    "State.Hover": [
+     "#d0d9fb",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#4f080a"
+   },
+   "Light": {
+    "Surface.Surface_0": "#260808",
+    "Surface.Surface_100": "#360c0c",
+    "Surface.Surface_300": "#501111",
+    "Content.Emphasis": "#f7f7f8",
+    "Content.Default": "#d5d7dd",
+    "Content.Muted": "#bcbec8",
+    "Content.Link": "#71a0fe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#d0d9fb",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#d0d9fb",
+     0.84
+    ],
+    "State.Hover": [
+     "#d0d9fb",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#4f080a"
+   }
+  },
+  "HyperPlum": {
+   "Dark": {
+    "Surface.Surface_0": "#470626",
+    "Surface.Surface_100": "#4c0528",
+    "Surface.Surface_300": "#60032f",
+    "Content.Emphasis": "#f8f5f6",
+    "Content.Default": "#e9e2e4",
+    "Content.Muted": "#c4babd",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#ffe3eb",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#ffe3eb",
+     0.84
+    ],
+    "State.Hover": [
+     "#ffe3eb",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#310019"
+   },
+   "Light": {
+    "Surface.Surface_0": "#fff6f8",
+    "Surface.Surface_100": "#fad6e1",
+    "Surface.Surface_300": "#fad6e1",
+    "Content.Emphasis": "#1d1617",
+    "Content.Default": "#5d4e51",
+    "Content.Muted": "#6d5f62",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#4c2e35",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#4c2e35",
+     0.84
+    ],
+    "State.Hover": [
+     "#4c2e35",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#fad6e1"
+   }
+  },
+  "InfernoBlast": {
+   "Dark": {
+    "Surface.Surface_0": "#410a06",
+    "Surface.Surface_100": "#470b07",
+    "Surface.Surface_300": "#5b0d09",
+    "Content.Emphasis": "#f8f5f5",
+    "Content.Default": "#e9e2e1",
+    "Content.Muted": "#c5bab9",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#ffe4e0",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#ffe4e0",
+     0.84
+    ],
+    "State.Hover": [
+     "#ffe4e0",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#320402"
+   },
+   "Light": {
+    "Surface.Surface_0": "#fff8f6",
+    "Surface.Surface_100": "#ffdbd6",
+    "Surface.Surface_300": "#ffdbd6",
+    "Content.Emphasis": "#1e1615",
+    "Content.Default": "#5d4f4c",
+    "Content.Muted": "#6d605d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#4d2f2a",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#4d2f2a",
+     0.84
+    ],
+    "State.Hover": [
+     "#4d2f2a",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#ffdbd6"
+   }
+  },
+  "KineticEnergy": {
+   "Dark": {
+    "Surface.Surface_0": "#1d2404",
+    "Surface.Surface_100": "#1f2704",
+    "Surface.Surface_300": "#283304",
+    "Content.Emphasis": "#f6f6f4",
+    "Content.Default": "#e3e5df",
+    "Content.Muted": "#bcbeb6",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#e7f0d2",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#e7f0d2",
+     0.84
+    ],
+    "State.Hover": [
+     "#e7f0d2",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#141a01"
+   },
+   "Light": {
+    "Surface.Surface_0": "#f4fed5",
+    "Surface.Surface_100": "#d6eba3",
+    "Surface.Surface_300": "#d6eba3",
+    "Content.Emphasis": "#171913",
+    "Content.Default": "#505448",
+    "Content.Muted": "#61655a",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#343c21",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#343c21",
+     0.84
+    ],
+    "State.Hover": [
+     "#343c21",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#d6eba3"
+   }
+  },
+  "LavaGlow": {
+   "Dark": {
+    "Surface.Surface_0": "#6b0f0b",
+    "Surface.Surface_100": "#77110c",
+    "Surface.Surface_300": "#97160f",
+    "Content.Emphasis": "#f8f5f5",
+    "Content.Default": "#e9e2e1",
+    "Content.Muted": "#c5bab9",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#ffe4e0",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#ffe4e0",
+     0.84
+    ],
+    "State.Hover": [
+     "#ffe4e0",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#410a06"
+   },
+   "Light": {
+    "Surface.Surface_0": "#ffe5e0",
+    "Surface.Surface_100": "#ffdbd6",
+    "Surface.Surface_300": "#ffdbd6",
+    "Content.Emphasis": "#1e1615",
+    "Content.Default": "#5d4f4c",
+    "Content.Muted": "#6d605d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#4d2f2a",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#4d2f2a",
+     0.84
+    ],
+    "State.Hover": [
+     "#4d2f2a",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#fcc1ba"
+   }
+  },
+  "NebulaDrift": {
+   "Dark": {
+    "Surface.Surface_0": "#300363",
+    "Surface.Surface_100": "#34046b",
+    "Surface.Surface_300": "#410886",
+    "Content.Emphasis": "#f6f6f8",
+    "Content.Default": "#e4e3e9",
+    "Content.Muted": "#bebbc4",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#eee7ff",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#eee7ff",
+     0.84
+    ],
+    "State.Hover": [
+     "#eee7ff",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#1e0043"
+   },
+   "Light": {
+    "Surface.Surface_0": "#fbf8ff",
+    "Surface.Surface_100": "#e6dbff",
+    "Surface.Surface_300": "#e6dbff",
+    "Content.Emphasis": "#18171d",
+    "Content.Default": "#53515d",
+    "Content.Muted": "#63616d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#38344d",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#38344d",
+     0.84
+    ],
+    "State.Hover": [
+     "#39334d",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#e6dbff"
+   }
+  },
+  "NitroFrost": {
+   "Dark": {
+    "Surface.Surface_0": "#02223b",
+    "Surface.Surface_100": "#02263f",
+    "Surface.Surface_300": "#03324f",
+    "Content.Emphasis": "#f4f7f7",
+    "Content.Default": "#dee5e7",
+    "Content.Muted": "#b5bfc2",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#cef2fd",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#cef2fd",
+     0.84
+    ],
+    "State.Hover": [
+     "#cef2fd",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#001830"
+   },
+   "Light": {
+    "Surface.Surface_0": "#ecfbff",
+    "Surface.Surface_100": "#ace9f6",
+    "Surface.Surface_300": "#ace9f6",
+    "Content.Emphasis": "#14191d",
+    "Content.Default": "#49545d",
+    "Content.Muted": "#5b656d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#233b4e",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#233b4e",
+     0.84
+    ],
+    "State.Hover": [
+     "#233b4e",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#ace9f6"
+   }
+  },
+  "PixelPop": {
+   "Dark": {
+    "Surface.Surface_0": "#5d0e5d",
+    "Surface.Surface_100": "#671167",
+    "Surface.Surface_300": "#811a81",
+    "Content.Emphasis": "#f7f5f7",
+    "Content.Default": "#e7e2e6",
+    "Content.Muted": "#c2bac1",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#fbe2f8",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#fbe2f8",
+     0.84
+    ],
+    "State.Hover": [
+     "#fbe2f8",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#3f033f"
+   },
+   "Light": {
+    "Surface.Surface_0": "#fee2fc",
+    "Surface.Surface_100": "#fed7fb",
+    "Surface.Surface_300": "#fed7fb",
+    "Content.Emphasis": "#1b161b",
+    "Content.Default": "#594f58",
+    "Content.Muted": "#696069",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#443044",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#443044",
+     0.84
+    ],
+    "State.Hover": [
+     "#443044",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#f8b9f5"
+   }
+  },
+  "PolarFreeze": {
+   "Dark": {
+    "Surface.Surface_0": "#043b5d",
+    "Surface.Surface_100": "#054065",
+    "Surface.Surface_300": "#064e79",
+    "Content.Emphasis": "#f4f7f7",
+    "Content.Default": "#dee5e7",
+    "Content.Muted": "#b5bfc2",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#cef2fd",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#cef2fd",
+     0.84
+    ],
+    "State.Hover": [
+     "#cef2fd",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#02223b"
+   },
+   "Light": {
+    "Surface.Surface_0": "#c2f0fa",
+    "Surface.Surface_100": "#ace9f6",
+    "Surface.Surface_300": "#ace9f6",
+    "Content.Emphasis": "#14191d",
+    "Content.Default": "#49545d",
+    "Content.Muted": "#5b656d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#233b4e",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#233b4e",
+     0.84
+    ],
+    "State.Hover": [
+     "#223b4e",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#82dcf2"
+   }
+  },
+  "QuantumPulse": {
+   "Dark": {
+    "Surface.Surface_0": "#3f033f",
+    "Surface.Surface_100": "#450445",
+    "Surface.Surface_300": "#560a56",
+    "Content.Emphasis": "#f7f5f7",
+    "Content.Default": "#e7e2e6",
+    "Content.Muted": "#c2bac1",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#fbe2f8",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#fbe2f8",
+     0.84
+    ],
+    "State.Hover": [
+     "#fbe2f8",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#2c002c"
+   },
+   "Light": {
+    "Surface.Surface_0": "#fff5fe",
+    "Surface.Surface_100": "#fed7fb",
+    "Surface.Surface_300": "#fed7fb",
+    "Content.Emphasis": "#1b161b",
+    "Content.Default": "#594f58",
+    "Content.Muted": "#696069",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#4c2e35",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#4c2e35",
+     0.84
+    ],
+    "State.Hover": [
+     "#443044",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#fed7fb"
+   }
+  },
+  "StarBurst": {
+   "Dark": {
+    "Surface.Surface_0": "#710437",
+    "Surface.Surface_100": "#7b053b",
+    "Surface.Surface_300": "#970748",
+    "Content.Emphasis": "#f8f5f6",
+    "Content.Default": "#e9e2e4",
+    "Content.Muted": "#c4babd",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#ffe3eb",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#ffe3eb",
+     0.84
+    ],
+    "State.Hover": [
+     "#ffe3eb",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#470626"
+   },
+   "Light": {
+    "Surface.Surface_0": "#fbe3e9",
+    "Surface.Surface_100": "#fad6e1",
+    "Surface.Surface_300": "#fad6e1",
+    "Content.Emphasis": "#1d1617",
+    "Content.Default": "#5d4e51",
+    "Content.Muted": "#6d5f62",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#4c2e35",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#4c2e35",
+     0.84
+    ],
+    "State.Hover": [
+     "#4c2e35",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#fbbcd0"
+   }
+  },
+  "SuperCharge": {
+   "Dark": {
+    "Surface.Surface_0": "#043e32",
+    "Surface.Surface_100": "#024537",
+    "Surface.Surface_300": "#045745",
+    "Content.Emphasis": "#f4f7f6",
+    "Content.Default": "#dfe6e4",
+    "Content.Muted": "#b5c0bd",
+    "Content.Link": "#c8defe",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#fd7968",
+    "Stroke.Default": [
+     "#d0f5ec",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#d0f5ec",
+     0.84
+    ],
+    "State.Hover": [
+     "#d0f5ec",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#062720"
+   },
+   "Light": {
+    "Surface.Surface_0": "#d0f2d1",
+    "Surface.Surface_100": "#c1ecc3",
+    "Surface.Surface_300": "#c1ecc3",
+    "Content.Emphasis": "#151a15",
+    "Content.Default": "#4c564c",
+    "Content.Muted": "#5d665d",
+    "Content.Link": "#0f198a",
+    "ActionEmphasis.Background": "#335fff",
+    "ActionEmphasis.Foreground": "#f7f7f8",
+    "ActionAlert.Foreground": "#c0180c",
+    "Stroke.Default": [
+     "#293e29",
+     0.88
+    ],
+    "Stroke.Emphasis": [
+     "#293e29",
+     0.84
+    ],
+    "State.Hover": [
+     "#293e29",
+     0.92
+    ],
+    "System.Success": "#39c582",
+    "Common.NavigationBar": "#99e19e"
+   }
+  }
+ }
+}

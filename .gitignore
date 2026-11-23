@@ -1,0 +1,11 @@
+.roblosecurity
+.claude/
+node_modules/
+.cache/
+game-cache/
+*.log
+.chrome-test/
+*.pcapng
+*.etl
+.freebuff/
+.DS_Store

@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "adopt": {
+    "DFFlagAlwaysFireEngineNetConfigSetSignal": {
+      "value": "True",
+      "why": "Network config signal fires as on desktop."
+    },
+    "DFFlagAnimGraphFixReferenceCycles": {
+      "value": "True",
+      "why": "Animation graph memory leak fix."
+    },
+    "DFFlagDataModelAsyncContentInit": {
+      "value": "True",
+      "why": "Content starts loading asynchronously, as on desktop. This one changes start-up the most."
+    },
+    "DFFlagFixCoreUiDragDetectorWhileMenuOpen": {
+      "value": "True",
+      "why": "UI fix: drag detectors while a core menu is open."
+    },
+    "DFFlagFixPMDecoderV8InitOnFail": {
+      "value": "True",
+      "why": "Decoder init fix."
+    },
+    "DFFlagJsonParserUsesDepthLimit": {
+      "value": "True",
+      "why": "JSON parsing has the depth limit desktop has."
+    },
+    "DFFlagLcCacheOptDefaultEnabled3": {
+      "value": "True",
+      "why": "Layered clothing cache as on desktop."
+    },
+    "DFFlagModelRepresentationInferRigTypeSkipTransparent": {
+      "value": "True",
+      "why": "Avatar fix: rig type detection skips transparent parts."
+    },
+    "DFFlagRakNetEnsureAckSendLoopIsFinite": {
+      "value": "True",
+      "why": "Network fix: the ack send loop cannot spin forever."
+    },
+    "DFFlagRespectImprovedPhysicsReplicationDisabledConfig": {
+      "value": "True",
+      "why": "Physics replication honours the place setting that turns the improved mode off."
+    },
+    "DFFlagTextShadowAlwaysResetsGuiEffect": {
+      "value": "True",
+      "why": "UI rendering fix for text shadows."
+    },
+    "DFFlagUITexturePickMipLevels2": {
+      "value": "True",
+      "why": "UI textures pick their mip level as on desktop."
+    },
+    "DFFlagUseRigidConstraintForAccessories3": {
+      "value": "True",
+      "why": "Accessories attach with RigidConstraint like on desktop."
+    },
+    "DFFlagWebParserCheckStackDepth": {
+      "value": "True",
+      "why": "Web parser stack depth check, as on desktop."
+    },
+    "DFFlagWebParserCheckStackDepthThrow": {
+      "value": "True",
+      "why": "Goes with DFFlagWebParserCheckStackDepth."
+    },
+    "DFFlagWorkspaceReplicationModeControls": {
+      "value": "True",
+      "why": "Games can use the Workspace replication mode controls they get on desktop."
+    },
+    "DFFlagWorldModelSkipEmptyStep": {
+      "value": "True",
+      "why": "Skips stepping empty WorldModels."
+    },
+    "DFIntJsonParserMaxDepth": {
+      "value": "1024",
+      "why": "Goes with DFFlagJsonParserUsesDepthLimit. Desktop uses 1024."
+    },
+    "DFIntMaxMissedWorldStepsRemembered": {
+      "value": "16",
+      "why": "Physics replication remembers as many missed steps as desktop."
+    },
+    "DFIntTargetTimeDelayFacctorTenths": {
+      "value": "20",
+      "why": "Goes with FFlagInterpolationAwareTargetTime. Desktop uses 20."
+    },
+    "FFlagDontOverwriteSettingsWithPartialSerialization": {
+      "value": "True",
+      "why": "Settings fix: a partial save no longer overwrites saved settings."
+    },
+    "FFlagEnableSharedStringCaching7": {
+      "value": "True",
+      "why": "Shared string caching, as on desktop."
+    },
+    "FFlagEnableSocialServicePromptGameInviteEvent2": {
+      "value": "True",
+      "why": "Games get the game invite event they get on desktop."
+    },
+    "FFlagFixCreatorbug21352": {
+      "value": "True",
+      "why": "Engine bug fix."
+    },
+    "FFlagFixPreferredBindingUIButtonMod": {
+      "value": "True",
+      "why": "UI fix for preferred input bindings."
+    },
+    "FFlagFixSmallSurfaceGuiMouseInput": {
+      "value": "True",
+      "why": "Input fix for small SurfaceGuis."
+    },
+    "FFlagInterpolationAwareTargetTime": {
+      "value": "True",
+      "why": "Replicated parts move with interpolation-aware timing, as on desktop."
+    },
+    "FFlagLuaCharacterControllerDeprecationEnabled": {
+      "value": "True",
+      "why": "Script API matches desktop."
+    },
+    "FFlagSQLiteDontFailOnSQLITEBUSY": {
+      "value": "True",
+      "why": "Storage fix: a busy database no longer counts as a failure."
+    },
+    "FFlagSimCheckWorldInsteadOfContactManager": {
+      "value": "True",
+      "why": "Physics fix: checks the world instead of the contact manager."
+    },
+    "FFlagSimWorldTouchAndNoCollideCommands": {
+      "value": "True",
+      "why": "Physics: touch and no-collide commands behave as on desktop."
+    },
+    "FFlagSkinningTransferIgnoreInternalGeo": {
+      "value": "True",
+      "why": "Layered clothing skinning fix."
+    },
+    "FFlagSlimPreserveRigidAccessoryOrientation": {
+      "value": "True",
+      "why": "Avatar fix: rigid accessories keep their orientation."
+    },
+    "FFlagSlimResetTintModeOnPlaceOpen": {
+      "value": "True",
+      "why": "Avatar fix: tint mode resets when a place opens."
+    },
+    "FFlagStandardOutputUseRuntimeMutex": {
+      "value": "True",
+      "why": "Thread safety fix for engine output."
+    },
+    "FFlagUnlockMouseIfKicked": {
+      "value": "True",
+      "why": "The mouse unlocks on the kick screen so its button can be clicked."
+    },
+    "FFlagUserPSUseBindToAnimation": {
+      "value": "True",
+      "why": "Player scripts animate the character the way desktop does."
+    },
+    "FFlagUserPoppercamLooseOpacityThreshold": {
+      "value": "True",
+      "why": "Camera: the popper camera treats see-through parts as desktop does."
+    },
+    "FFlagVoxelGridDownsampleRefetchChunkAfterProducer": {
+      "value": "True",
+      "why": "Terrain voxel fix."
+    },
+    "FFlagVoxelGridFixGetNonEmptyRegionsInside": {
+      "value": "True",
+      "why": "Terrain voxel fix."
+    },
+    "FFlagVoxelGridFixUpsample": {
+      "value": "True",
+      "why": "Terrain voxel fix."
+    },
+    "FFlagVoxelGridJobsSkipErasedNode": {
+      "value": "True",
+      "why": "Terrain voxel fix."
+    }
+  },
+  "keep": {
+    "DFFlagAddTeleportFailedToDurationLogger": "Telemetry or diagnostics.",
+    "DFFlagBatchThumbnailEnableAnyWebP": "No clear benefit on web, and the effect is not known.",
+    "DFFlagCLI169073": "No clear benefit on web, and the effect is not known.",
+    "DFFlagCSGPublishResolveCancelledPromise": "Studio only.",
+    "DFFlagDMChangeTrackerUsableBandwidthCheck": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFFlagDebugVideoCaptureSkipFinalUpdate": "Video capture and video features are separate on web.",
+    "DFFlagEnableMeshPreloading2": "Preloading and content caches raise memory use on the fixed 2 GB heap. WebBlox caches assets itself.",
+    "DFFlagEnableOpenShop": "App features with no effect on gameplay here.",
+    "DFFlagEnablePopLatencyProbe3": "Telemetry or diagnostics.",
+    "DFFlagEnablePreloading": "Preloading and content caches raise memory use on the fixed 2 GB heap. WebBlox caches assets itself.",
+    "DFFlagEnableRemoteProfiling": "Telemetry or diagnostics.",
+    "DFFlagEnableTextUsageDataTracking": "Telemetry or diagnostics.",
+    "DFFlagExperienceStateCaptureMinMemEnabled": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFFlagFileCacheDirSizeYield": "Browser storage has different limits.",
+    "DFFlagHttpCacheCleanScheduleBasedOnBytes": "Browser storage has different limits.",
+    "DFFlagInnerBoxUseContext": "No clear benefit on web, and the effect is not known.",
+    "DFFlagLocalStorageArenaOptimization": "Browser storage has different limits.",
+    "DFFlagPerformanceControlUpdateSystemState": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFFlagPlayerFeedbackPromptResolveRootPlaceIdEnabled": "App features with no effect on gameplay here.",
+    "DFFlagRM3T0CadenceExperimentOverrideEnabled": "No clear benefit on web, and the effect is not known.",
+    "DFFlagRbxTransportTakeServerCapabilitiesFromJoin": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "DFFlagRbxTransportUseGameFqdn2": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "DFFlagRbxTransportWebTransportResetConnectionError": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "DFFlagShapecastDebugDrawImprovements": "Studio only.",
+    "DFFlagTeleportClientAssetPreloadingEnabled9": "Preloading and content caches raise memory use on the fixed 2 GB heap. WebBlox caches assets itself.",
+    "DFFlagTrackNetworkSenderStall": "Telemetry or diagnostics.",
+    "DFFlagUserInitiatedCurrentTimeAdjustment": "No clear benefit on web, and the effect is not known.",
+    "DFFlagValidateDescendantOfDataModel": "No clear benefit on web, and the effect is not known.",
+    "DFFlagVideoCaptureStorageNoSizeBytes": "Video capture and video features are separate on web.",
+    "DFFlagVideoGamePreviewOpenedAndLoadedTracking": "Video capture and video features are separate on web.",
+    "DFFlagVideoServicePricingPlaceId": "Video capture and video features are separate on web.",
+    "DFIntAnimationLodLevelChangedCollectionRate": "Telemetry or diagnostics.",
+    "DFIntAnimationLodSessionSummaryCollectionRate": "Telemetry or diagnostics.",
+    "DFIntAnimationRigIsValidR15MaxSize": "No clear benefit on web, and the effect is not known.",
+    "DFIntAvatarEditorServiceItemDetailsBatchingMaxTimeInQueueMs": "App features with no effect on gameplay here.",
+    "DFIntBroadPhaseIslandBufferZoneMinPartLimit": "No clear benefit on web, and the effect is not known.",
+    "DFIntCSGLevelOfDetailSwitchingDistance": "Rendering cost tuning. WebBlox has its own settings for this, and shared shaders touch the WebGPU translation.",
+    "DFIntCSGLevelOfDetailSwitchingDistanceL12": "Rendering cost tuning. WebBlox has its own settings for this, and shared shaders touch the WebGPU translation.",
+    "DFIntCSGPublishRolloutPlacePerMillion": "Studio only.",
+    "DFIntDMChangeTrackerMinBandwidthMbps": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFIntDMChangeTrackerMinFreeMemoryMB": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFIntDMChangeTrackerMinTotalMemoryMB": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFIntDraggerMaxMovePercent": "Studio only.",
+    "DFIntExperienceStateCaptureHighlightTransparencyPercent": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFIntExternalIdentityDesktopBrowserOperationTimeoutSeconds": "Desktop app plumbing that web does differently.",
+    "DFIntGetBundleDetailsBatchingMaxTimeInQueueMs": "App features with no effect on gameplay here.",
+    "DFIntHttpBatchApi_maxReqs": "Web tunes this for browser networking.",
+    "DFIntHttpCacheAsyncWriterMaxPendingSize": "Browser storage has different limits.",
+    "DFIntHttpCacheCleanCheckAfterKB": "Browser storage has different limits.",
+    "DFIntHttpCacheCleanMaxFilesToKeep": "Browser storage has different limits.",
+    "DFIntHttpCacheCleanMinFilesRequired": "Browser storage has different limits.",
+    "DFIntIdempotentDevProductPurchaseMaxTimeInQueueMs": "App features with no effect on gameplay here.",
+    "DFIntPerformanceControlMemoryCriticalBufferSizeMB": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "DFIntRakNetMissingPingThresholdMs": "Web tunes this for browser networking.",
+    "DFIntRbxStorageCapacityHighMB": "Browser storage has different limits.",
+    "DFIntRbxStorageCapacityLowMB": "Browser storage has different limits.",
+    "DFIntRbxStorageDeleteTailWhenReachedPercentMaxCapacity": "Browser storage has different limits.",
+    "DFIntRbxStoragePeriodicCleanupIntervalSec": "Browser storage has different limits.",
+    "DFIntRobustRetargetingCollectionRate": "Telemetry or diagnostics.",
+    "DFIntStreamJobMaxBufferHealthThresholdHundredths": "Web tunes this for browser networking.",
+    "DFIntStreamJobMinBufferHealthThresholdHundredths": "Web tunes this for browser networking.",
+    "DFIntUIShadowHighTessellationRadiusThreshold": "Rendering cost tuning. WebBlox has its own settings for this, and shared shaders touch the WebGPU translation.",
+    "DFIntValidateDescendantOfDataModel_PercentageTenThousandth": "No clear benefit on web, and the effect is not known.",
+    "DFIntWebrtcMaxResolutionLongSide": "Voice chat does not run on web.",
+    "DFIntWebrtcMaxResolutionShortSide": "Voice chat does not run on web.",
+    "DFIntWebrtcNeteqCngTimeoutMs": "Voice chat does not run on web.",
+    "DFIntWrapContentProviderHotCacheSize": "Preloading and content caches raise memory use on the fixed 2 GB heap. WebBlox caches assets itself.",
+    "FFlagAddCompressionInConnectionInternalSend5": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "FFlagAssetServiceEnableGetBundleDetailsQueueExpiration": "App features with no effect on gameplay here.",
+    "FFlagAvatarEditorServiceEnableGetItemDetailsQueueExpiration": "App features with no effect on gameplay here.",
+    "FFlagControlSimulationViaDataModelFeatures2": "No clear benefit on web, and the effect is not known.",
+    "FFlagDMRecorderRecordGuiServiceScreenContext": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagDisableMemoryTrackingRollout2": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagEXPCHAT878": "App features with no effect on gameplay here.",
+    "FFlagEnableAccountSwitchFeature": "Desktop app plumbing that web does differently.",
+    "FFlagEnableAdsMouseUnlock": "App features with no effect on gameplay here.",
+    "FFlagEnableClientPlayerCharacterSnapshot": "No clear benefit on web, and the effect is not known.",
+    "FFlagEnableCrossExpVoiceLaunchFeasibilityExperiment": "Voice chat does not run on web.",
+    "FFlagEnableCrossExpVoiceQueryCallLaunchInGameJoin": "Voice chat does not run on web.",
+    "FFlagEnableDataModelChangeTracking7": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagEnableDesktopExternalIdentity": "Desktop app plumbing that web does differently.",
+    "FFlagEnableExperienceStateCaptureDMRecorder5": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagEnableKeystoreAutoLogin": "Desktop app plumbing that web does differently.",
+    "FFlagEnableLocalHtmlFileLaunch": "Desktop app plumbing that web does differently.",
+    "FFlagEnableMultiVETextureManagerSharing": "Rendering cost tuning. WebBlox has its own settings for this, and shared shaders touch the WebGPU translation.",
+    "FFlagEnablePauseLuaAppOnBackground": "App features with no effect on gameplay here.",
+    "FFlagEnablePlayerCharacterSnapshot": "No clear benefit on web, and the effect is not known.",
+    "FFlagEnableTextDocumentAssetUpload": "Studio only.",
+    "FFlagEnableZstdDictionaryForClientSettings": "Desktop app plumbing that web does differently.",
+    "FFlagEnableZstdForClientSettings": "Desktop app plumbing that web does differently.",
+    "FFlagExperienceTrackCurrentPlaceId": "Telemetry or diagnostics.",
+    "FFlagIncludePowerSaverMode": "App features with no effect on gameplay here.",
+    "FFlagL1SessionStateEngineOwned4": "App features with no effect on gameplay here.",
+    "FFlagLoadToolboxPackageAssetAsyncFailCase": "Studio only.",
+    "FFlagLuaAppDisableSound": "App features with no effect on gameplay here.",
+    "FFlagLuaAppGameSearchPlayerSuggestion376": "App features with no effect on gameplay here.",
+    "FFlagMeshLoDSendTimeToServeMesh2": "Telemetry or diagnostics.",
+    "FFlagMicroProfilerUiUseXHtmlDump": "Studio only.",
+    "FFlagPerformanceControlManageComputeEnabled10": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagPerformanceControlUsesRuntime2": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagPropagateGameIdToTeamTestJoin": "Studio only.",
+    "FFlagRbxStorageEnableDbCacheSelfTest": "Browser storage has different limits.",
+    "FFlagRbxStorageWebCleanupThread": "Browser storage has different limits.",
+    "FFlagRbxTransportConnectionAuthGate": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "FFlagRenderEnableMultiVESharedShaders": "Rendering cost tuning. WebBlox has its own settings for this, and shared shaders touch the WebGPU translation.",
+    "FFlagSendWebViewUserAgentEnabled": "Desktop app plumbing that web does differently.",
+    "FFlagSettingsSaveOnChange2": "Desktop app plumbing that web does differently.",
+    "FFlagSquadToastNotificationsEnabled2": "App features with no effect on gameplay here.",
+    "FFlagStateRecorderEnableThrottling2": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FFlagSupportGcRegionQuotaSource": "No clear benefit on web, and the effect is not known.",
+    "FFlagTeamTestSessionTeleports": "Studio only.",
+    "FFlagTeamTestTeleportFixes2": "Studio only.",
+    "FFlagTrackBtidSessionChange3": "Telemetry or diagnostics.",
+    "FFlagTrackSurfaceAppearance2": "Telemetry or diagnostics.",
+    "FFlagUseRbxTransportClient3": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "FFlagVideoCapturesDevAPIKillSwitchEnabled": "Video capture and video features are separate on web.",
+    "FFlagVideoEnableHevcEncode2": "Video capture and video features are separate on web.",
+    "FFlagVideoFrameYuvGPU8": "Video capture and video features are separate on web.",
+    "FFlagVoiceChatEnableSdpCompressionMaster4": "Voice chat does not run on web.",
+    "FFlagVoiceVolumeControlsApplyPerUserMultiplier": "Voice chat does not run on web.",
+    "FFlagVoiceVolumeControlsExcludePartyVoice": "Voice chat does not run on web.",
+    "FFlagVoiceVolumeControlsUseChainedFaders": "Voice chat does not run on web.",
+    "FFlagWHAM1890": "No clear benefit on web, and the effect is not known.",
+    "FIntAutomaticDRSHundredthPercent": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FIntCLI20390_2": "No clear benefit on web, and the effect is not known.",
+    "FIntDataModelRecordingDMChangeTrackerBufferSizeExponent": "Adaptive quality, memory tracking and recording. WebBlox sets quality and resolution itself.",
+    "FIntEnableCVSUrlForOtaPatchPercentage": "Desktop app plumbing that web does differently.",
+    "FIntGamePerfMonitorPercentage": "Telemetry or diagnostics.",
+    "FIntHttpCurlMaxCachedHandlesPerHost": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "FIntLmsClientRollout2": "App features with no effect on gameplay here.",
+    "FIntLsbOptimizationCompatibilityCode": "No clear benefit on web, and the effect is not known.",
+    "FIntMigrateComponentManagerToRuntimeInjectorHundredthPercent": "No clear benefit on web, and the effect is not known.",
+    "FIntQuicInitialMaxStreamDataUni": "Web uses its own transport. These are tuned for it or only exist natively.",
+    "FIntSQLiteCacheKeysExternalReserve": "Browser storage has different limits.",
+    "FIntVideoCaptureMaxLongSide": "Video capture and video features are separate on web.",
+    "FIntVideoCaptureMaxShortSide": "Video capture and video features are separate on web.",
+    "FIntWeldConstraintAdornSize": "Studio only.",
+    "FIntWrapContentProviderMaxBundleCount": "Preloading and content caches raise memory use on the fixed 2 GB heap. WebBlox caches assets itself."
+  }
+}

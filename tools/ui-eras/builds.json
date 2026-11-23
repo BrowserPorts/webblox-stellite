@@ -1,0 +1,17 @@
+{
+  "2023-09-sidebar": {
+    "label": "Late 2023, sidebar menu",
+    "version": "version-a4bcd740b6924005",
+    "flags": {}
+  },
+  "2023-01": {
+    "label": "Early 2023",
+    "version": "version-22dadb468ed443cf",
+    "flags": {
+      "FFlagDisableNewIGMinDUA": "True"
+    }
+  },
+  "2016": {
+    "label": "2016"
+  }
+}

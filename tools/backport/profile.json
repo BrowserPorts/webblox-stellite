@@ -1,0 +1,377 @@
+{
+  "version": "version-db62701aba0b4bcd",
+  "wasm": {
+    "functions": {
+      "PTHREAD_CREATE": 415,
+      "PTHREAD_SELF": 164336,
+      "OPERATOR_NEW": 167600,
+      "FILL_PARTICLES": 14503,
+      "CURVE_TABLE": 14419,
+      "CURVE_COPY": 14436,
+      "SHADOW_UPDATE": 17986,
+      "TILE_JOB": 18028,
+      "RENDER_OUTER": 17143,
+      "RENDER_PERFORM": 17080,
+      "LIGHTING": 19451,
+      "LIGHT_UPLOAD": 17834,
+      "RASTER_STATE": 136394,
+      "CULL_TREE": 17459,
+      "PACK_RECT": 17884,
+      "RECT_OF": 17885,
+      "CLEAR_PACKER": 17882,
+      "SCENE_PREPARE": 17443,
+      "BOUNDS_UPDATE": 15326,
+      "OCCLUSION": 15309,
+      "RENDER_CONFIG": 17482,
+      "TEXTURE_MARK": 18919,
+      "LOCKED_GATHER": 14912,
+      "LOCKED_MARK_B": 16165,
+      "LOCKED_MARK_C": 17842,
+      "CLUSTER_PREPARE": 14951,
+      "CLUSTER_DRAW": 14878,
+      "CLUSTER_NEW": 14927
+    },
+    "constants": {
+      "CLUSTER_FIELDS": [
+        292,
+        296,
+        300
+      ],
+      "BATCH_VECTOR": [
+        18009836,
+        18009840,
+        18009844
+      ],
+      "MAIN_EXIT_TEXT": "[LIFECYCLE] no startup place id; exiting\n"
+    }
+  },
+  "windows": "version-5a21b87bbc2641cf",
+  "themeAddress": 24316272,
+  "systemTheme": {
+    "vtableSlots": [
+      5881,
+      5882,
+      5883,
+      5884
+    ],
+    "typeIndex": 2,
+    "valueOffset": 3600,
+    "vtableAddress": 2940468,
+    "patchedSha256": "fb19b22d8d8ecd95690992875fb6cc3466f461f2569b20553e4d1e6b4ad6c6af"
+  },
+  "gateConstants": {
+    "functions": [
+      19807,
+      19808
+    ],
+    "apiAllowlistFlag": 8258972,
+    "vulkanName": "vulkan_desktop",
+    "webPackName": "glsles3_web",
+    "computeCapability": 94
+  },
+  "lightingGates": [
+    {
+      "func": 19807,
+      "from": "419c8bf8032d0000410146",
+      "to": "419c8bf8032d0000410246"
+    },
+    {
+      "func": 19807,
+      "from": "41efc5c40010",
+      "to": "41cda6840110"
+    },
+    {
+      "func": 19808,
+      "from": "419c8bf8032d0000410146",
+      "to": "419c8bf8032d0000410246"
+    },
+    {
+      "func": 19808,
+      "from": "41efc5c40010",
+      "to": "41cda6840110"
+    },
+    {
+      "func": 19808,
+      "from": "2d005e4101470d00",
+      "to": "2d005e4101460d00"
+    }
+  ],
+  "wordmarkBoxes": [
+    {
+      "sheet": "img_set_1x_1.png",
+      "x": 0,
+      "y": 456,
+      "w": 188,
+      "h": 36,
+      "visibleY": 461,
+      "visible": 26
+    },
+    {
+      "sheet": "img_set_2x_3.png",
+      "x": 0,
+      "y": 403,
+      "w": 376,
+      "h": 70,
+      "visibleY": 412,
+      "visible": 52
+    },
+    {
+      "sheet": "img_set_3x_3.png",
+      "x": 0,
+      "y": 883,
+      "w": 564,
+      "h": 105,
+      "visibleY": 897,
+      "visible": 78
+    }
+  ],
+  "wordmarkInsets": [
+    {
+      "y": 0,
+      "h": 0
+    },
+    {
+      "y": 1,
+      "h": -2
+    },
+    {
+      "y": 1,
+      "h": -3
+    }
+  ],
+  "rectEdits": [
+    {
+      "offset": [
+        [
+          0,
+          456
+        ],
+        [
+          0,
+          461
+        ]
+      ],
+      "size": [
+        [
+          188,
+          36
+        ],
+        [
+          188,
+          26
+        ]
+      ]
+    },
+    {
+      "offset": [
+        [
+          0,
+          402
+        ],
+        [
+          0,
+          412
+        ]
+      ],
+      "size": [
+        [
+          376,
+          72
+        ],
+        [
+          376,
+          52
+        ]
+      ]
+    },
+    {
+      "offset": [
+        [
+          0,
+          882
+        ],
+        [
+          0,
+          897
+        ]
+      ],
+      "size": [
+        [
+          564,
+          108
+        ],
+        [
+          564,
+          78
+        ]
+      ]
+    }
+  ],
+  "aspect": [
+    [
+      188,
+      36
+    ],
+    [
+      188,
+      26
+    ]
+  ],
+  "bytecodeVersion": 9,
+  "bytecodeEdits": [
+    {
+      "title": "Always follow the device theme",
+      "from": "020000004d01030e0300000065006800fb0302009f0301020e030700fb0300004d03034904000000520402009f0302025201030065005e00",
+      "to": "020000004d01030e0300000065006800fb0302009f03010200000000fb0300004d03034904000000520402009f0302025201030065005e00"
+    },
+    {
+      "title": "Skip the default theme experiment",
+      "from": "fb0100004d010107000000004d0101de01000000fb0200004d020207000000004d0202ba020000000e020600520201000e020400f001020003000080a9020001",
+      "to": "6f010c0065003400000000004d0101de01000000fb0200004d020207000000004d0202ba020000000e020600520201000e020400f001020003000080a9020001"
+    }
+  ],
+  "scriptReplacements": {
+    "PlayerChoiceTranslationSettingInitializer": "GraphicsSettings"
+  },
+  "settingsAnchors": [
+    "GraphicsQualityFrame",
+    "GraphicsEnablerFrame",
+    "FramerateCapFrame",
+    "GraphicsQualitySlider",
+    "GraphicsQualityEnabler"
+  ],
+  "wording": [
+    [
+      "\"aria-label\",\"Loading Roblox\"",
+      "\"aria-label\",\"Loading WebBlox\"",
+      1
+    ],
+    [
+      "t?\"Joining experience\":\"Roblox\"",
+      "t?\"Joining experience\":\"\"",
+      1
+    ],
+    [
+      "`Downloading Roblox\\u2026",
+      "`Downloading WebBlox\\u2026",
+      2
+    ],
+    [
+      "\"aria-label\",\"Unable to join Roblox\"",
+      "\"aria-label\",\"Unable to join WebBlox\"",
+      1
+    ],
+    [
+      "\"Roblox is already running in another tab.",
+      "\"WebBlox is already running in another tab.",
+      1
+    ],
+    [
+      "async function Qe(){let e=await Ye();return e===\"contended\"?{kind:\"contended\"}:e!==null?{kind:\"acquired\",lease:e,mechanism:\"navigator-locks\"}:Ze()}",
+      "async function Qe(){return{kind:\"unavailable\"}}",
+      1
+    ],
+    [
+      "\"Preparing Roblox\\u2026\"",
+      "\"Preparing WebBlox\\u2026\"",
+      1
+    ],
+    [
+      "\"Failed to load Roblox. Please reload the page.\"",
+      "\"Failed to load WebBlox. Please reload the page.\"",
+      1
+    ],
+    [
+      "window.close(),window.location.replace(\"about:blank\")",
+      "window.__webbloxExit()",
+      3
+    ],
+    [
+      "textContent=\"Close tab\"",
+      "textContent=\"Leave\"",
+      1
+    ],
+    [
+      "n=t.headers.get(\"Content-Encoding\")?0:Number(t.headers.get(\"Content-Length\"))||0",
+      "n=Number(t.headers.get(\"X-Decoded-Length\"))||(t.headers.get(\"Content-Encoding\")?0:Number(t.headers.get(\"Content-Length\"))||0)",
+      1
+    ],
+    [
+      "${o(t)} / ${o(n)} MB (${Math.round(t/n*100)}%)",
+      "${Math.round(t/n*100)}%",
+      1
+    ],
+    [
+      "t.src=o)}async reportPresentationFailure",
+      "t.src=window.__webbloxImageUrl?window.__webbloxImageUrl(o):o)}async reportPresentationFailure",
+      1
+    ],
+    [
+      "parseFloat(new URLSearchParams(window.location.search).get(\"renderScale\")||\"\")",
+      "parseFloat(new URLSearchParams(window.location.search).get(\"renderScale\")||window.__webbloxRenderScale||\"\")",
+      1
+    ]
+  ],
+  "webClient": [
+    [
+      "function In(){if(!l._mainLoopChan){var e=new MessageChannel;l._mainLoopChan=e;var r=1,t=0;e.port1.onmessage=async function(){var n=performance.now()-t;n<r&&await new Promise(function(a){setTimeout(a,r-n)}),t=performance.now();try{await l._main_loop_iteration()}catch(a){console.error(\"main_loop_iteration threw\",a),l.reportEngineError?.(a)}e.port2.postMessage(0)},e.port2.postMessage(0)}}",
+      "function In(){if(!l._mainLoopChan){var e=new MessageChannel;l._mainLoopChan=e;var b=!1,t=0,f=typeof requestAnimationFrame==\"function\"&&typeof document!=\"undefined\";async function k(){if(b||window.__webbloxFrameHold&&window.__webbloxFrameHold(k))return;b=!0;var s=performance.now();Qe.fresh&&Qe.fresh();var g=window.__webgpuGL;g&&(g.inIteration=!0);try{await l._main_loop_iteration()}catch(a){console.error(\"main_loop_iteration threw\",a),l.reportEngineError?.(a)}g&&g.frameEnd();t=performance.now(),b=!1;window.__webbloxFrameLate&&window.__webbloxFrameLate(t-s,k)}function d(){requestAnimationFrame(d),k()}e.port1.onmessage=function(){(!f||document.hidden||performance.now()-t>100)&&k(),setTimeout(function(){e.port2.postMessage(0)},16)},f&&requestAnimationFrame(d),e.port2.postMessage(0)}}",
+      1
+    ],
+    [
+      "Qe=()=>performance.timeOrigin+performance.now()",
+      "Qe=typeof document==\"undefined\"?()=>performance.timeOrigin+performance.now():((e,n=0,c=0,f=()=>(n++&15)==0?c=e+performance.now():c)=>(f.fresh=()=>{n=0},f))(performance.timeOrigin)",
+      1
+    ],
+    [
+      "function Jr(){c_(),We.__instrumented||(We.__instrumented=!0,G.instrumentWasmImports(We));var e=",
+      "function Jr(){c_(),We.__instrumented||(We.__instrumented=!0,G.instrumentWasmImports(We));typeof window<\"u\"&&(window.__webbloxImportPatches||[]).forEach(p=>p(We,Ae));typeof window>\"u\"&&globalThis.__wbThreadGl&&(importScripts(location.origin+\"/js/gl-ops.js\",location.origin+\"/js/gl-thread.js\"),globalThis.__wbInstallThreadGl(We,Ae));var e=",
+      1
+    ],
+    [
+      "e.postMessage({cmd:1,handlers:t,wasmMemory:Ae,wasmModule:de})",
+      "e.postMessage({cmd:1,handlers:t,wasmMemory:Ae,wasmModule:de,wbGl:globalThis.__webbloxThreadGl})",
+      1
+    ],
+    [
+      "Ae=t.wasmMemory,Vr(),de=t.wasmModule,$r(),oi(),Hr()",
+      "Ae=t.wasmMemory,Vr(),de=t.wasmModule,globalThis.__wbThreadGl=t.wbGl,$r(),oi(),Hr()",
+      1
+    ],
+    [
+      "try{await bi(t.start_routine,t.arg)}",
+      "try{t.arg===2119827488?await globalThis.__wbHelperLoop(se,Ae):await bi(t.start_routine,t.arg)}",
+      1
+    ],
+    [
+      "s_(se),de=c,se}function r(s)",
+      "s_(se),de=c,globalThis.__webbloxEngineExports=se,se}function r(s)",
+      1
+    ],
+    [
+      "console.log(\"[WebView JS] Setting iframe src to:\",s),E.src=s",
+      "console.log(\"[WebView JS] Setting iframe src to:\",s),E.src=window.__webbloxWebViewUrl?window.__webbloxWebViewUrl(s):s",
+      1
+    ]
+  ],
+  "requiredFlags": {
+    "FFlagEnableCoreContentBadge2": "False",
+    "FFlagDebugSkipPostTtiSignatureVerification": "True",
+    "DFFlagDebugSkipPostTtiSignatureVerification": "True",
+    "FFlagDebugSkipOtaPatchVerification": "True",
+    "DFFlagDebugSkipOtaPatchVerification": "True",
+    "DFIntNumConcurrentBatchWorkflowsPerAssetProviderInstance": "16",
+    "FFlagUIGpuGradient12": "False",
+    "FFlagNetworkPerfTestClientAnalysis5": "False",
+    "FIntTM2NotSupportedUserMask": "3186654",
+    "FIntTM2SupportedUserMask": "16",
+    "FIntMaxCloudAssetDimension": "4096",
+    "FFlagSmoothClusterUseTextureArrays": "True",
+    "FFlagRenderLightIndexTexture2D": "False",
+    "DFFlagRenderShadowMapInvertChartProcessingOrder": "True",
+    "FFlagRenderFixCullHandleTransfer": "True",
+    "FFlagShadowFValuesEnabled": "True",
+    "FFlagTerrainShadowSkirtMainCamera": "True",
+    "FIntGLESUboBufferPaddingBytes": "16384"
+  }
+}
