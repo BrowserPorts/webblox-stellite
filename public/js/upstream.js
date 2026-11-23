@@ -221,6 +221,42 @@
     }
   }
 
+  // What a place needed last time, so the next join can fetch it all at once instead of finding it one request at a
+  // time. Kept per place in first-seen order, which is the order the first frame wants it in
+  const PLACE_ID = new URLSearchParams(location.search).get('placeId');
+  const PLACE_PREFIX = 'webblox.place.';
+  const PLACE_INDEX = 'webblox.places';
+  const PLACE_ASSETS = 600;
+  const PLACES_KEPT = 20;
+  const placeSeen = new Set();
+  let placeKnown = [];
+  let placeSave = 0;
+  if (/^\d+$/.test(PLACE_ID || '')) {
+    try { placeKnown = JSON.parse(localStorage.getItem(PLACE_PREFIX + PLACE_ID)) || []; } catch {}
+  }
+
+  function notePlaceAsset(href) {
+    if (!/^\d+$/.test(PLACE_ID || '') || placeSeen.has(href) || placeSeen.size >= PLACE_ASSETS) return;
+    placeSeen.add(href);
+    clearTimeout(placeSave);
+    placeSave = setTimeout(() => {
+      try {
+        const places = (JSON.parse(localStorage.getItem(PLACE_INDEX)) || []).filter(id => id !== PLACE_ID);
+        places.push(PLACE_ID);
+        for (const old of places.splice(0, Math.max(0, places.length - PLACES_KEPT))) localStorage.removeItem(PLACE_PREFIX + old);
+        localStorage.setItem(PLACE_INDEX, JSON.stringify(places));
+        localStorage.setItem(PLACE_PREFIX + PLACE_ID, JSON.stringify([...placeSeen]));
+      } catch {}
+    }, 5000);
+  }
+
+  function prefetchPlace() {
+    if (!placeKnown.length) return;
+    console.log(`[prefetch] fetching ${placeKnown.length} assets this place used last time`);
+    prefetchLocations(placeKnown.map(location => ({ location })));
+    placeKnown = [];
+  }
+
   const prefetchQueue = [];
   const prefetchJobs = new Map();
   let prefetchActive = 0;
@@ -238,7 +274,9 @@
         let host;
         try { host = new URL(href).hostname; } catch { continue; }
         const key = assetKey(href);
-        if (!ASSET_HOST.test(host) || prefetchJobs.has(key)) continue;
+        if (!ASSET_HOST.test(host)) continue;
+        notePlaceAsset(href);
+        if (prefetchJobs.has(key)) continue;
         const job = { href, key, started: false };
         job.promise = new Promise(resolve => { job.resolve = resolve; });
         prefetchJobs.set(key, job);
@@ -391,6 +429,7 @@
 
   async function handleGameJoin(url, method, headers, body) {
     ({ url, body } = launcherJoin(url, body));
+    prefetchPlace();
     const r = await wisp(url, { method, headers: spoofNativeUa(headers), body });
     let json = null;
     try { json = JSON.parse(new TextDecoder().decode(r.body)); } catch {}

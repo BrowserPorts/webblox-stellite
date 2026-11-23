@@ -33,6 +33,8 @@
           var match = typeof arguments[0] === 'string' && arguments[0].match(/setStage: \(stage:([A-Za-z]+)\)/);
           if (match) {
             stage = match[1];
+            window.__webbloxStage = stage;
+            dispatchEvent(new CustomEvent('webblox-stage', { detail: stage }));
             if (pending && onLauncher()) location.reload();
           }
           return original.apply(console, arguments);

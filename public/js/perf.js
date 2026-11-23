@@ -396,6 +396,22 @@
     }
   }, 1000);
 
+  // Each engine stage keeps the ratio it settled on, so the launcher and a game do not pull one shared target back
+  // and forth. Leaving a stage remembers its ratio and coming back restores it. Kept for this page load only
+  const stageRatios = new Map();
+  let stage = window.__webbloxStage || '';
+  addEventListener('webblox-stage', event => {
+    if (!adaptive || !installed || event.detail === stage) return;
+    stageRatios.set(stage, ratio);
+    stage = event.detail;
+    stableWindows = 0;
+    const known = stageRatios.get(stage);
+    if (known && Math.abs(known - ratio) > 0.01) {
+      ratio = clamp(known, MIN_RATIO, capRatio);
+      apply(`restored for ${stage}`, 0);
+    }
+  });
+
   function apply(direction, cost) {
     lastChangeAt = performance.now();
     try {
