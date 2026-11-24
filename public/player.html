@@ -263,7 +263,11 @@
       const STABLE_MS = 90000;
       const retry = () => {
         const used = Number(sessionStorage.getItem(RETRY_KEY) || 0);
-        if (used >= MAX_RETRIES) return;
+        if (used >= MAX_RETRIES) {
+          // Every try failed the same way, which on a network that blocks Roblox's game servers is how it always ends
+          if (window.parent !== window) window.parent.postMessage({ type: 'roblox-game-unreachable' }, location.origin);
+          return;
+        }
         sessionStorage.setItem(RETRY_KEY, String(used + 1));
         console.warn(`[local] Could not reach the game server, rejoining (${used + 1} of ${MAX_RETRIES})`);
         setTimeout(() => location.reload(), 1500 * (used + 1));
