@@ -54,8 +54,58 @@
     // "no local server"
     window.WEBLOX_MODE = 'wisp';
     document.documentElement.setAttribute('data-mode', 'wisp');
-    // Roblox's in-app web pages need a page loader this copy does not carry yet, so the address is passed through as it is
-    window.__webbloxWebViewUrl = function (url) { return url; };
+    // Roblox's own pages, such as a security check while signing in, cannot be framed here: roblox.com forbids it, and
+    // the session is the host's, not the browser's. The host shows the page in a proxied frame over this one, and passes
+    // back what the page tells the app. The app's own frame stays empty underneath
+    (function () {
+      if (window.parent === window) {
+        window.__webbloxWebViewUrl = function (url) { return url; };
+        return;
+      }
+      var tell = function (message) { window.parent.postMessage(message, location.origin); };
+      var isPage = function (url) { return /^https?:\/\//i.test(url || ''); };
+      var show = function (url) {
+        var title = document.getElementById('rbx-webview-title');
+        tell({ type: 'roblox-webview', url: url, title: title ? title.textContent : '' });
+      };
+      var watching = false;
+      // The app also points its frame at a new page by itself, and hides the frame when it is done with it
+      var watch = function () {
+        var box = document.getElementById('rbx-webview-container');
+        var frame = document.getElementById('rbx-webview-iframe');
+        if (!box || !frame || watching) return;
+        watching = true;
+        new MutationObserver(function () {
+          if (box.style.display === 'none') tell({ type: 'roblox-webview-closed' });
+        }).observe(box, { attributes: true, attributeFilter: ['style'] });
+        new MutationObserver(function () {
+          var url = frame.getAttribute('src');
+          if (!isPage(url)) return;
+          frame.setAttribute('src', 'about:blank');
+          show(url);
+        }).observe(frame, { attributes: true, attributeFilter: ['src'] });
+      };
+      window.__webbloxWebViewUrl = function (url) {
+        if (!isPage(url)) return url;
+        // The title is written just after the address is asked for
+        setTimeout(function () {
+          watch();
+          show(url);
+        }, 0);
+        return 'about:blank';
+      };
+      addEventListener('message', function (event) {
+        if (event.source !== window.parent || event.origin !== location.origin || !event.data) return;
+        if (event.data.type === 'roblox-webview-close') {
+          var close = document.getElementById('rbx-webview-close');
+          if (close) close.click();
+        }
+        // The app listens only to a page of Roblox's own, which is what the host's frame was showing
+        if (event.data.type === 'roblox-webview-message') {
+          dispatchEvent(new MessageEvent('message', { data: event.data.data, origin: 'https://www.roblox.com' }));
+        }
+      });
+    })();
     try { localStorage.removeItem('webblox.mode'); } catch (e) {}
   </script>
   <script>
