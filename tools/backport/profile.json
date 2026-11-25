@@ -352,6 +352,11 @@
       "console.log(\"[WebView JS] Setting iframe src to:\",s),E.src=s",
       "console.log(\"[WebView JS] Setting iframe src to:\",s),E.src=window.__webbloxWebViewUrl?window.__webbloxWebViewUrl(s):s",
       1
+    ],
+    [
+      "c=\"url(\"+w(r)+\")\"",
+      "c=\"url(\"+(p=>p[0]==\"/\"&&p[1]!=\"/\"?new URL(\"engine\"+p,location.href).href:p)(w(r))+\")\"",
+      1
     ]
   ],
   "requiredFlags": {
